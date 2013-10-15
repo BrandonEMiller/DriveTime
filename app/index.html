@@ -13,6 +13,9 @@
         <!-- build:css(.tmp) styles/main.css -->
         <link rel="stylesheet" href="styles/main.css">
         <!-- endbuild -->
+        <script type="text/javascript"
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBEU3I5Ps1tKBkAYXaNQbMzU1djRVqvSuE&sensor=true">
+        </script>
     </head>
     <body>
         <!--[if lt IE 10]>
@@ -28,6 +31,10 @@
 
 
           </ul>
+            <div style="width: 600px;">
+                <div id="map" style="width: 280px; height: 400px; float: left;"></div> 
+                <div id="panel" style="width: 300px; float: right;"></div> 
+        </div>
         </div>
 
 
@@ -51,9 +58,7 @@
 
         <!-- build:js scripts/main.js -->
         <script src="scripts/main.js"></script>
-        <script type="text/javascript"
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBEU3I5Ps1tKBkAYXaNQbMzU1djRVqvSuE&sensor=true">
-        </script>
+        
         <!-- endbuild -->
 </body>
 </html>

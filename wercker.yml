@@ -21,5 +21,5 @@ build:
   # Report the build status to HipChat
   # after-steps:
   #   - hipchat-notify:
-  #     token: **YOUR HIPCHAT TOKEN***
-  #       room-id: **YOUR HIPCHAT ROOM ID**
+  #     token: 94ce6003b3520aebbd1370ee230e39
+  #       room-id: 172022
