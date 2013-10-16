@@ -1,3 +1,6 @@
+Parse.initialize("jsdvcxCy07th6YIZeB2MWk3WFkppIGtMqlP24cnR", "j1gckPR0G2XGBrDuoXnqQS60sSSJVkRFI3gbAjMr");
+
+
 $(".time").click(function(){
 	var directionsService = new google.maps.DirectionsService();
 	     var directionsDisplay = new google.maps.DirectionsRenderer();
@@ -14,8 +17,10 @@ $(".time").click(function(){
 	       if (status == google.maps.DirectionsStatus.OK) {
 	         directionsDisplay.setDirections(response);
 	         var route = response.routes[0];
-	         console.log(route.legs[0].duration.value/60)
-	         $('.hero-unit').append(route.legs[0].duration.value/60 + ' minutes')
+	         var route_time= Math.round(route.legs[0].duration.value/60)
+
+	         console.log(route_time)
+	         $('.hero-unit').append(route_time + ' minutes')
 	       }
 
 	       else {
