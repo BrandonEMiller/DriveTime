@@ -4,11 +4,14 @@ var route_time
 
  //$('.start_date').pickadate()
 
-var $input = $('.start_date').pickadate()
-var picker = $input.pickadate('picker')
-var $timeInput = $('.start_time').pickatime()
-var timePicker = $timeInput.pickatime('picker')
-
+var $startInput = $('.start_date').pickadate()
+var startDatePicker = $startInput.pickadate('picker')
+var $startTimeInput = $('.start_time').pickatime()
+var startTimePicker = $startTimeInput.pickatime('picker')
+var $endInput = $('.end_date').pickadate()
+var endDatePicker = $endInput.pickadate('picker')
+var $endTimeInput =  $('.end_time').pickatime()
+var endTimePicker = $endTimeInput.pickatime('picker')
 // Use the picker object directly.
 
 
@@ -39,13 +42,12 @@ $(".time").click(function(){
 
 
 $(".submit_dates").click(function(){ 
-	var meetingStart = new Date (picker.get('select').year, picker.get('select').month, picker.get('select').date , timePicker.get('select').hour, timePicker.get('select').mins, 0, 0)
-	// var meetingEnd = new Date ($('.end_year').val(), ($('.end_month').val()-1), $('.end_day').val() , $('.end_hour').val(), $('.end_minute').val(), 0, 0)
+	var meetingStart = new Date (startDatePicker.get('select').year, startDatePicker.get('select').month, startDatePicker.get('select').date , startTimePicker.get('select').hour, startTimePicker.get('select').mins, 0, 0)
+	var meetingEnd = new Date (endDatePicker.get('select').year, endDatePicker.get('select').month, endDatePicker.get('select').date , endTimePicker.get('select').hour, endTimePicker.get('select').mins, 0, 0)
 	console.log(meetingStart)
 	//console.log(picker.get('select').date)
 
-	// console.log(meetingEnd)
+	console.log(meetingEnd)
 	var leaveForMeeting = new Date(meetingStart-(route_time*60*1000))
-	console.log(timePicker.get('select').mins)
 	$('.hero-unit').append('You need to leave at' + leaveForMeeting)
 });	
