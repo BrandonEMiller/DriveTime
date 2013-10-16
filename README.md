@@ -7,4 +7,4 @@ This is my final project as part of my time in the Front End Engineering Program
 
 Utilized in this application is the Google Maps API. Information about the Google Maps API can be found at https://developers.google.com/maps/documentation/javascript/tutorial.
 
-
+Also used is pickadate.js a great tool for users to input dates and times.  Find more at http://amsul.ca/pickadate.js/
