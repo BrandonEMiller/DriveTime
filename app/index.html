@@ -27,34 +27,46 @@
         <![endif]-->
 
 
-        <div class="hero-unit">
+        <div class="container">
+            <div class="input_container">
+                <input class="event_name" placeholder="Event">
+                <div class="date_input_wrapper">
+                    <input class="start_date" placeholder="Starting Date">
+                    <input class="start_time" placeholder="Starting Time">
+                </div>
+        
+                <div class="date_input_wrapper">
+                    <input class="end_date" placeholder="Ending Date">
+                    <input class="end_time" placeholder="Ending Time">
+                </div>
+                
+             
+                <div class="location">
+                    <input class="origin-street" placeholder="Starting Street Address">
+                    <input class="origin-city" placeholder="Starting City">
+                    <input class="origin-state" placeholder="Starting State">
+                </div>
+                <div class="location">
+                    <input class="destination-street" placeholder="End Street Address">
+                    <input class="destination-city" placeholder="End City">
+                    <input class="destination-state" placeholder="End State">
+                </div>
+                <button class="time">Check Route</button>
 
-          <input class="origin-street" placeholder="Starting Street Address">
-          <input class="origin-city" placeholder="Starting City">
-          <input class="origin-state" placeholder="Starting State">
-          <input class="destination-street" placeholder="End Street Address">
-          <input class="destination-city" placeholder="End City">
-          <input class="destination-state" placeholder="End State">
-          <button class="time">Find Time</button>
+                <br>
 
-          <br>
+               
+                <br>
 
+                <button class="submit_dates">Submit Dates</button>
+              
+                <br>
+            </div>
 
-          
-          <input class="start_date" placeholder="Starting Date">
-          
-          <input class="start_time" placeholder="Starting Hour (of 24)">
-
-          <br>
-          <input class="end_date" placeholder="Ending Date">
-          
-          <input class="end_time" placeholder="Ending Time">
-         
-          <br>
-
-          <button class="submit_dates">Submit Dates</button>
-          
-          <br>
+            <div class="map_container">
+                <div id="map"></div> 
+                <div id="panel"></div> 
+            </div>
            
         </div>
 

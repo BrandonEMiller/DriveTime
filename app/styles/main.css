@@ -1,24 +1,89 @@
 body {
-    background: #fafafa;
+    background: url(http://miriadna.com/desctopwalls/images/max/At-the-turn-of-the-road.jpg)no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #333;
 }
 
-.hero-unit {
+.container {
     margin: 50px auto 0 auto;
-    width: 400px;
+    width: 1020px;
     font-size: 18px;
     font-weight: 200;
     line-height: 30px;
-    background-color: #eee;
+    background: rgba(194, 193, 193, 0.85);
     border-radius: 6px;
     padding: 60px;
+
+
 }
 
-.hero-unit h1 {
-    font-size: 60px;
-    line-height: 1;
-    letter-spacing: -1px;
+.input_container {
+    vertical-align: top;
+    width: 500px;
+    border: 1px solid black;
+    display: inline-block;
+    height: 500px
+    }
+.event_name {
+    width: 90%;
+    margin: 5px auto 30px;
+    display: block;
+    height: 40px;
+    font-size: 20px;
+    text-align: center;
+}
+
+
+.date_input_wrapper {
+    display: block;
+    margin: 0 auto 30px;
+    width: 348px;
+}
+
+.date_input_wrapper input{
+    width: 150px;
+    height: 20px;
+    font-size: 14px;
+    margin-right: 15px;
+}
+
+.location {
+    width: 240px;
+    display: inline-block;
+    border: 1px solid black;
+    display: inline-block;
+}
+
+.location input {
+    height: 20px;
+    font-size: 14px;
+    width: 200px;
+    margin: 15px auto;
+    display: block;
+}
+
+.map_container {
+    display: inline-block;
+    width: 500px;
+    border: 1px solid black;
+    overflow:scroll;
+    height: 500px;
+}
+
+#map {
+    width: 490px; 
+    height: 400px;
+    margin: 0 auto;
+}
+
+#panel {
+     width: 490px;
+     margin: 0 auto;
+     background: #eee
 }
 
 .browsehappy {

@@ -19,25 +19,35 @@ var endTimePicker = $endTimeInput.pickatime('picker')
 //This is how it gets information on drive time from google maps all wrapped up in a single click event for the moment
 $(".time").click(function(){
 	var directionsService = new google.maps.DirectionsService();
-	     var directionsDisplay = new google.maps.DirectionsRenderer();
-	     var request = {
-	       origin: $('.origin-street').val() +', '+ $('.origin-city').val() +', ' + $('.origin-state').val(), 
-	       destination: $('.destination-street').val() +', '+ $('.destination-city').val() +', ' + $('.destination-state').val(), 
-	       travelMode: google.maps.DirectionsTravelMode.DRIVING
-	     };
-	     directionsService.route(request, function(response, status) {
-	       if (status == google.maps.DirectionsStatus.OK) {
-	         var route = response.routes[0];
-	         route_time= Math.round(route.legs[0].duration.value/60)
+	var directionsDisplay = new google.maps.DirectionsRenderer();
+	
+	var map = new google.maps.Map(document.getElementById('map'), {
+       zoom:7,
+       mapTypeId: google.maps.MapTypeId.ROADMAP
+     });
 
-	         console.log(route_time)
-	         $('.hero-unit').append(route_time + ' minutes')
+     directionsDisplay.setMap(map);
+     directionsDisplay.setPanel(document.getElementById('panel'));
+
+	var request = {
+	    origin: $('.origin-street').val() +', '+ $('.origin-city').val() +', ' + $('.origin-state').val(), 
+	    destination: $('.destination-street').val() +', '+ $('.destination-city').val() +', ' + $('.destination-state').val(), 
+	    travelMode: google.maps.DirectionsTravelMode.DRIVING
+	};
+	directionsService.route(request, function(response, status) {
+	    if (status == google.maps.DirectionsStatus.OK) {
+	        var route = response.routes[0];
+	        route_time= Math.round(route.legs[0].duration.value/60)
+	        directionsDisplay.setDirections(response);
+
+	        console.log(route_time)
+	        $('.container').append(route_time + ' minutes')
 	       }
 
-	       else {
-	       	console.log("Error")
-	       }
-	     });
+	    else {
+	    	console.log("Error")
+	    }
+	});
 });
 
 
@@ -46,8 +56,10 @@ $(".submit_dates").click(function(){
 	var meetingEnd = new Date (endDatePicker.get('select').year, endDatePicker.get('select').month, endDatePicker.get('select').date , endTimePicker.get('select').hour, endTimePicker.get('select').mins, 0, 0)
 	console.log(meetingStart)
 	//console.log(picker.get('select').date)
-
-	console.log(meetingEnd)
-	var leaveForMeeting = new Date(meetingStart-(route_time*60*1000))
-	$('.hero-unit').append('You need to leave at' + leaveForMeeting)
+	var leaveTimeHour = Math.floor((startTimePicker.get('select').pick - route_time)/60)
+	console.log(leaveTimeHour)
+	var leaveTimeMinute =startTimePicker.get('select').pick - route_time - leaveTimeHour*60
+	console.log(leaveTimeMinute)
+	var leaveForMeeting = "" + leaveTimeHour + ":" + leaveTimeMinute
+	$('.container').append('You need to leave at ' + leaveForMeeting)
 });	
