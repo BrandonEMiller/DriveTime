@@ -74,17 +74,29 @@ $(".submit_dates").click(function(){
 		var Event = Parse.Object.extend("Event");
 		var driveEvent = new Event();
 		driveEvent.set("eventName", $('.event_name').val());
-		driveEvent.set("eventStartDate", startDatePicker);
-		driveEvent.set("eventStartTime", startTimePicker);
-		driveEvent.set("eventEndDate", endDatePicker);
-		driveEvent.set("eventEndTime", endTimePicker);
+		driveEvent.set("eventStartYear", startDatePicker.get('select').year);
+		driveEvent.set("eventStartMonth", startDatePicker.get('select').month);
+		driveEvent.set("eventStartDate", startDatePicker.get('select').date);
+		driveEvent.set("eventStartHour", startTimePicker.get('select').hour);
+		driveEvent.set("eventStartMin", startTimePicker.get('select').mins);
+		driveEvent.set("eventEndYear", endDatePicker.get('select').year);
+		driveEvent.set("eventEndMonth", endDatePicker.get('select').month);
+		driveEvent.set("eventEndDate", endDatePicker.get('select').date);
+		driveEvent.set("eventEndHour", endTimePicker.get('select').hour);
+		driveEvent.set("eventEndMin", endTimePicker.get('select').mins);
 		driveEvent.set("eventLeaveTime", leaveForMeeting);
 		driveEvent.set("timePeriod", timePeriod);
+		driveEvent.set("startingAddress", $('.origin-street').val());
+		driveEvent.set("startingCity", $('.origin-city').val());
+		driveEvent.set("startingState", $('.origin-state').val());
+		driveEvent.set("endingAddress", $('.destination-street').val());
+		driveEvent.set("endingCity", $('.destination-city').val());
+		driveEvent.set("endingState", $('.destination-state').val());
 
 
 		driveEvent.save(null, {
   			success: function(eventName) {
-  			  // The object was saved successfully.
+  			  console.log("Save success")
   		},
   			error: function(eventName, error) {
     		// The save failed.
