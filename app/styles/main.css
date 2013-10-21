@@ -54,8 +54,6 @@ body {
 .location {
     width: 240px;
     display: inline-block;
-    border: 1px solid black;
-    display: inline-block;
 }
 
 .location input {
