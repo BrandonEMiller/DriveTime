@@ -26,8 +26,15 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-
+        <div class="links">
+            <a href="#">Home</a>
+            <a href="#/newEvent">New Event</a>
+        </div>
         <div class="container">
+           
+        </div>
+
+        <script type="text/template" id="new-event-template">
             <div class="input_container">
                 <input class="event_name" placeholder="Event">
                 <div class="date_input_wrapper">
@@ -64,8 +71,7 @@
                 <div id="map"></div> 
                 <div id="panel"></div> 
             </div>
-           
-        </div>
+        </script>
 
 
         <!-- build:js scripts/vendor.js -->
@@ -92,7 +98,10 @@
         <script src="scripts/picker.date.js"></script>
         <script src="scripts/picker.time.js"></script>
         <script src="scripts/main.js"></script>
-        
+        <script src="scripts/views.js"></script>
+
+        <script src="scripts/router.js"></script>
+
         <!-- endbuild -->
 </body>
 </html>
