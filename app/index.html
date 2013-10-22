@@ -15,6 +15,8 @@
         <link rel="stylesheet" href="styles/default.css">
         <link rel="stylesheet" href="styles/default.date.css">
         <link rel="stylesheet" href="styles/default.time.css">
+        <link rel="stylesheet" href="bower_components/fullcalendar/fullcalendar.css">
+
         <!-- endbuild -->
         <script type="text/javascript"
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBEU3I5Ps1tKBkAYXaNQbMzU1djRVqvSuE&sensor=true">
@@ -27,12 +29,18 @@
         <![endif]-->
 
         <div class="links">
-            <a href="#">Home</a>
+            <a href="#/home">Home</a>
             <a href="#/newEvent">New Event</a>
         </div>
         <div class="container">
-           
+            
         </div>
+
+        <script type="text/template" id="main-template">
+            <div class="calendar"></div>
+
+        </script>
+
 
         <script type="text/template" id="new-event-template">
             <div class="input_container">
@@ -79,6 +87,7 @@
         <script src="bower_components/jquery/jquery.js"></script>
         <script src="bower_components/underscore/underscore.js"></script>
         <script src="bower_components/backbone/backbone.js"></script>
+        <script src="bower_components/fullcalendar/fullcalendar.js"></script>
         <!-- endbower -->
         <!-- endbuild -->
 

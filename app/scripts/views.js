@@ -1,3 +1,24 @@
+MainView = Backbone.View.extend({
+	template: _.template(  $('#main-template').text() ),
+
+	initialize: function() {
+		$('.container').append(this.el)
+
+		this.render()
+
+	},
+
+	render: function(){
+		this.$el.append(this.template())
+		$('.calendar').fullCalendar({
+		    dayClick: function() {
+		        alert('a day has been clicked!');
+		    }
+		});
+	},
+})
+
+
 CreateEventView = Backbone.View.extend({
 	
 	template: _.template(  $('#new-event-template').text() ),
