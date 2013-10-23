@@ -1,3 +1,11 @@
+var Event = Parse.Object.extend("Event");
+var EventCollection = Parse.Collection.extend({
+	model:Event
+})
+var driveEvent = new Event();
+var calendar = new EventCollection();
+
+
 MainView = Backbone.View.extend({
 	template: _.template(  $('#main-template').text() ),
 
@@ -11,6 +19,23 @@ MainView = Backbone.View.extend({
 	render: function(){
 		this.$el.append(this.template())
 		$('.calendar').fullCalendar({
+			events: function(start, end, callback) {
+				calendar.fetch({
+					success: function(collection) {
+						var data = []
+						collection.each(function(object) {
+					    	data.push({title: object.get('eventName'), start: object.get('eventStartYear') + '-' + (object.get('eventStartMonth')+1)+ '-' + object.get('eventStartDate') + ' ' + object.get('eventStartHour')+':' + object.get('eventStartMin')});
+					    });
+					    console.log(data)
+					    callback(data)
+					},
+					error: function(collection, error) {
+				    	// The collection could not be retrieved.
+				  	}
+				});
+
+			},
+
 		    dayClick: function() {
 		        alert('a day has been clicked!');
 		    }
@@ -115,8 +140,6 @@ CreateEventView = Backbone.View.extend({
 
 		var leaveForMeeting = "" + leaveTimeHour + ":" + leaveTimeMinute
 		$(".save_event").click(function(){
-			var Event = Parse.Object.extend("Event");
-			var driveEvent = new Event();
 			driveEvent.set("eventName", $('.event_name').val());
 			driveEvent.set("eventStartYear", startDatePicker.get('select').year);
 			driveEvent.set("eventStartMonth", startDatePicker.get('select').month);

@@ -1,5 +1,5 @@
 body {
-    background: url(http://miriadna.com/desctopwalls/images/max/At-the-turn-of-the-road.jpg)no-repeat center center fixed; 
+   background: url(http://miriadna.com/desctopwalls/images/max/At-the-turn-of-the-road.jpg)no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -17,7 +17,7 @@ a {
     font-size: 18px;
     font-weight: 200;
     line-height: 30px;
-    background: rgba(194, 193, 193, 0.85);
+    background: rgba(248, 247, 247, 0.95);
     border-radius: 6px;
     padding: 60px;
 
@@ -27,7 +27,6 @@ a {
 .input_container {
     vertical-align: top;
     width: 500px;
-    border: 1px solid black;
     display: inline-block;
     height: 500px
     }
@@ -70,7 +69,6 @@ a {
 .map_container {
     display: inline-block;
     width: 500px;
-    border: 1px solid black;
     overflow:scroll;
     height: 500px;
 }
