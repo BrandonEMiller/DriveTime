@@ -19,12 +19,29 @@ MainView = Backbone.View.extend({
 	render: function(){
 		this.$el.append(this.template())
 		$('.calendar').fullCalendar({
+			header: {
+				left:  'today prev,next',
+				center: 'title',
+				right:  'agendaDay agendaWeek month' 
+			},
 			events: function(start, end, callback) {
 				calendar.fetch({
 					success: function(collection) {
 						var data = []
 						collection.each(function(object) {
-					    	data.push({title: object.get('eventName'), start: object.get('eventStartYear') + '-' + (object.get('eventStartMonth')+1)+ '-' + object.get('eventStartDate') + ' ' + object.get('eventStartHour')+':' + object.get('eventStartMin')});
+					    	data.push({
+					    		title: object.get('eventName'), 
+					    		start: object.get('eventStartYear') + '-' + (object.get('eventStartMonth')+1)+ '-' + object.get('eventStartDate') + ' ' + object.get('eventStartHour')+':' + object.get('eventStartMin'),
+					    		end: object.get('eventEndYear') + '-' + (object.get('eventEndMonth')+1)+ '-' + object.get('eventEndDate') + ' ' + object.get('eventEndHour')+':' + object.get('eventEndMin'),
+					    		allDay: false
+					    	});
+					    	data.push({
+					    		title: 'Leave For ' + object.get('eventName'),
+					    		start: object.get('eventStartYear') + '-' + (object.get('eventStartMonth')+1)+ '-' + object.get('eventStartDate') + ' ' + object.get('eventLeaveHour')+':' + object.get('eventLeaveMinute'),
+					    		end: object.get('eventStartYear') + '-' + (object.get('eventStartMonth')+1)+ '-' + object.get('eventStartDate') + ' ' + object.get('eventStartHour')+':' + object.get('eventStartMin'),
+					    		allDay: false,
+					    		color: 'green'
+					    	})
 					    });
 					    console.log(data)
 					    callback(data)
@@ -130,11 +147,12 @@ CreateEventView = Backbone.View.extend({
 		var leaveTimeMinute =diff- leaveTimeHour*60
 		console.log(leaveTimeMinute)
 		var timePeriod = "AM"
+		var leaveTimeHourAdjusted = leaveTimeHour
 		if((diff/60)>=12) {
 			timePeriod = "PM"
-			leaveTimeHour-=12
-			if(leaveTimeHour == 0) {
-				leaveTimeHour=12
+			leaveTimeHourAdjusted-=12
+			if(leaveTimeHourAdjusted == 0) {
+				leaveTimeHourAdjusted=12
 			}
 		}
 
@@ -154,6 +172,7 @@ CreateEventView = Backbone.View.extend({
 			driveEvent.set("eventLeaveTime", leaveForMeeting);
 			driveEvent.set("eventLeaveHour", leaveTimeHour);
 			driveEvent.set("eventLeaveMinute", leaveTimeMinute);
+			driveEvent.set("eventLeaveHourAdjusted", leaveTimeHourAdjusted);
 			driveEvent.set("timePeriod", timePeriod);
 			driveEvent.set("startingAddress", $('.origin-street').val());
 			driveEvent.set("startingCity", $('.origin-city').val());
