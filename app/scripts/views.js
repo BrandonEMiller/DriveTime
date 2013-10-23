@@ -2,7 +2,7 @@ var Event = Parse.Object.extend("Event");
 var EventCollection = Parse.Collection.extend({
 	model:Event
 })
-var driveEvent = new Event();
+
 var calendar = new EventCollection();
 
 
@@ -37,7 +37,7 @@ MainView = Backbone.View.extend({
 					    	});
 					    	data.push({
 					    		title: 'Leave For ' + object.get('eventName'),
-					    		start: object.get('eventStartYear') + '-' + (object.get('eventStartMonth')+1)+ '-' + object.get('eventStartDate') + ' ' + object.get('eventLeaveHour')+':' + object.get('eventLeaveMinute'),
+					    		start: object.get('eventStartYear') + '-' + (object.get('eventStartMonth')+1)+ '-' + object.get('eventLeaveDate') + ' ' + object.get('eventLeaveHour')+':' + object.get('eventLeaveMinute'),
 					    		end: object.get('eventStartYear') + '-' + (object.get('eventStartMonth')+1)+ '-' + object.get('eventStartDate') + ' ' + object.get('eventStartHour')+':' + object.get('eventStartMin'),
 					    		allDay: false,
 					    		color: 'green'
@@ -52,6 +52,10 @@ MainView = Backbone.View.extend({
 				});
 
 			},
+
+			 eventClick: function(event) {
+		       alert('an event has been clicked! It starts at ' + event.start);
+		    },
 
 		    dayClick: function() {
 		        alert('a day has been clicked!');
@@ -132,6 +136,7 @@ CreateEventView = Backbone.View.extend({
 	},
 
 	save: function(){ 
+		var driveEvent = new Event();
 		var $startInput = $('.start_date').pickadate()
 		var startDatePicker = $startInput.pickadate('picker')
 		var $startTimeInput = $('.start_time').pickatime()
@@ -148,6 +153,11 @@ CreateEventView = Backbone.View.extend({
 		console.log(leaveTimeMinute)
 		var timePeriod = "AM"
 		var leaveTimeHourAdjusted = leaveTimeHour
+		var leaveTimeDate = startDatePicker.get('select').date
+		if (leaveTimeHour<0) {
+			leaveTimeHour+=24
+			leaveTimeDate-=1
+		}
 		if((diff/60)>=12) {
 			timePeriod = "PM"
 			leaveTimeHourAdjusted-=12
@@ -170,6 +180,7 @@ CreateEventView = Backbone.View.extend({
 			driveEvent.set("eventEndHour", endTimePicker.get('select').hour);
 			driveEvent.set("eventEndMin", endTimePicker.get('select').mins);
 			driveEvent.set("eventLeaveTime", leaveForMeeting);
+			driveEvent.set("eventLeaveDate", leaveTimeDate);
 			driveEvent.set("eventLeaveHour", leaveTimeHour);
 			driveEvent.set("eventLeaveMinute", leaveTimeMinute);
 			driveEvent.set("eventLeaveHourAdjusted", leaveTimeHourAdjusted);
@@ -185,6 +196,7 @@ CreateEventView = Backbone.View.extend({
 			driveEvent.save(null, {
 	  			success: function(eventName) {
 	  			  console.log("Save success")
+	  			  router.navigate('home', {trigger: true});
 	  		},
 	  			error: function(eventName, error) {
 	    		// The save failed.
