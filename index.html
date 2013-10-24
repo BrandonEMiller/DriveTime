@@ -1,0 +1,162 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Final_Project</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <link rel="stylesheet" href="styles/363bb6ae.main.css">
+        <link href="http://fonts.googleapis.com/css?family=Quicksand:300|Raleway:100" rel="stylesheet" type="text/css">
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBEU3I5Ps1tKBkAYXaNQbMzU1djRVqvSuE&sensor=true">
+        </script>
+        <script src="http://www.parsecdn.com/js/parse-1.2.12.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 10]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <header>
+            <div class="header_container">
+                <div class="header_title">DriveTime</div>
+                <a href="#/home">
+                    <div class="header_text">Home</div>
+                </a>
+                <a href="#/newEvent">
+                    <div class="header_text">New Event</div>
+                </a>
+                <a href="#/home">
+                    <div class="header_text">About</div>
+                </a>
+                <a href="https://github.com/BrandonEMiller/DriveTime">
+                    <div class="header_text">GitHub</div>
+                </a>
+            </div>
+            
+        </header>
+        <div class="links">
+        
+            <a href="#/newEvent">New Event</a>
+        </div>
+        <div class="container">
+
+
+
+            
+        </div>
+
+        <script type="text/template" id="main-template">
+            
+            <div class="calendar_container">
+                <div class="calendar"></div>    
+            </div>
+            <div class="daily_container">
+                <h2>Events of the Day</h2>
+
+                <button class="new_event">New Event</button>
+            </div>
+
+        </script>
+
+
+        <script type="text/template" id="new-event-template">
+            <div class="input_container">
+                <input class="event_name" placeholder="Event">
+                <div class="date_input_wrapper">
+                    <input class="start_date" placeholder="Starting Date">
+                    <input class="start_time" placeholder="Starting Time">
+                </div>
+        
+                <div class="date_input_wrapper">
+                    <input class="end_date" placeholder="Ending Date">
+                    <input class="end_time" placeholder="Ending Time">
+                </div>
+                
+             
+                <div class="location">
+                    <input class="origin-street" placeholder="Starting Street Address">
+                    <input class="origin-city" placeholder="Starting City">
+                    <input class="origin-state" placeholder="Starting State">
+                </div>
+                <div class="location">
+                    <input class="destination-street" placeholder="End Street Address">
+                    <input class="destination-city" placeholder="End City">
+                    <input class="destination-state" placeholder="End State">
+                </div>
+                <button class="time">Check Route</button>
+
+                <button class="submit_dates">Submit Dates</button>
+
+                <button class="save_event">Save Event</button>
+
+                <button class="cancel_event">Cancel</button>
+              
+                <br>
+            </div>
+
+            <div class="map_container">
+                <div id="map"></div> 
+                <div id="panel"></div> 
+            </div>
+        </script>
+
+        <script type="text/template" id="edit-event-template">
+            <div class="input_container">
+                <input class="event_name"  value =<%= '"' +calendarEvent.get('eventName') + '"'%>>
+                <div class="date_input_wrapper">
+                    <input class="start_date" value =<%= '"' +(calendarEvent.get('eventStartMonth') + 1)+ "-" + calendarEvent.get('eventStartDate') + '-' + calendarEvent.get('eventStartYear') + '"'%>>
+                    <input class="start_time" value =<%= '"' +calendarEvent.get('eventStartHour') + ":" + calendarEvent.get('eventStartMin') + '"'%>>
+                </div>
+        
+                <div class="date_input_wrapper">
+                    <input class="end_date" value =<%= '"' +(calendarEvent.get('eventEndMonth') + 1)+ "-" + calendarEvent.get('eventEndDate') + '-' + calendarEvent.get('eventEndYear') + '"'%>>
+                    <input class="end_time" value =<%= '"' +calendarEvent.get('eventEndHour') + ":" + calendarEvent.get('eventEndMin') + '"'%>>
+                </div>
+                
+             
+                <div class="location">
+                    <input class="origin-street" value =<%= '"' +calendarEvent.get('startingAddress') + '"'%>>
+                    <input class="origin-city" value =<%= '"' +calendarEvent.get('startingCity') + '"'%>>
+                    <input class="origin-state" value =<%= '"' +calendarEvent.get('startingState') + '"'%>>
+                </div>
+                <div class="location">
+                    <input class="destination-street" value =<%= '"' +calendarEvent.get('endingAddress') + '"'%>>
+                    <input class="destination-city" value =<%= '"' +calendarEvent.get('endingCity') + '"'%>>
+                    <input class="destination-state" value =<%= '"' +calendarEvent.get('endingState') + '"'%>>
+                </div>
+                <button class="time">Check Route</button>
+
+                <button class="submit_dates">Submit Dates</button>
+
+                <button class="save_event">Save Event</button>
+
+                <button class="cancel_event">Cancel</button>
+              
+                <br>
+            </div>
+
+            <div class="map_container">
+                <div id="map"></div> 
+                <div id="panel"></div> 
+            </div>
+        </script>
+
+        <script src="scripts/6ee51545.vendor.js"></script>
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X');ga('send','pageview');
+        </script>
+
+        <script src="scripts/f12357ab.main.js"></script>
+</body>
+</html>
