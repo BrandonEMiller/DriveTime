@@ -9,6 +9,11 @@ var calendar = new EventCollection();
 MainView = Backbone.View.extend({
 	template: _.template(  $('#main-template').text() ),
 
+	events: {
+		"click .new_event": "new"
+
+	},
+
 	initialize: function() {
 		$('.container').append(this.el)
 
@@ -62,6 +67,10 @@ MainView = Backbone.View.extend({
 		    }
 		});
 	},
+
+	new: function() {
+		router.navigate('newEvent', {trigger: true});
+	}
 })
 
 
@@ -71,7 +80,8 @@ CreateEventView = Backbone.View.extend({
 
 	events: {
 		"click .time": "checkRoute",
-		"click .submit_dates": "save"
+		"click .submit_dates": "save",
+		"click .cancel_event": "cancel"
 
 	},
 
@@ -205,6 +215,10 @@ CreateEventView = Backbone.View.extend({
 		});
 		})	 
 		$('.container').append('You need to leave at ' + leaveForMeeting + ' ' + timePeriod)
+	},
+
+	cancel: function() {
+		router.navigate('home', {trigger: true});
 	}		
 
 })
