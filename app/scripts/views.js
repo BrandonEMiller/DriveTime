@@ -38,7 +38,8 @@ MainView = Backbone.View.extend({
 					    		title: object.get('eventName'), 
 					    		start: object.get('eventStartYear') + '-' + (object.get('eventStartMonth')+1)+ '-' + object.get('eventStartDate') + ' ' + object.get('eventStartHour')+':' + object.get('eventStartMin'),
 					    		end: object.get('eventEndYear') + '-' + (object.get('eventEndMonth')+1)+ '-' + object.get('eventEndDate') + ' ' + object.get('eventEndHour')+':' + object.get('eventEndMin'),
-					    		allDay: false
+					    		allDay: false,
+					    		id: object.id
 					    	});
 					    	data.push({
 					    		title: 'Leave For ' + object.get('eventName'),
@@ -59,7 +60,9 @@ MainView = Backbone.View.extend({
 			},
 
 			 eventClick: function(event) {
-		       alert('an event has been clicked! It starts at ' + event.start);
+		       //alert('an event has been clicked! It has an id of ' + event.id);
+		       router.navigate('events/' + event.id, {trigger: true});
+
 		    },
 
 		    dayClick: function() {
@@ -176,7 +179,7 @@ CreateEventView = Backbone.View.extend({
 			}
 		}
 
-		var leaveForMeeting = "" + leaveTimeHour + ":" + leaveTimeMinute
+		var leaveForMeeting = "" + leaveTimeHourAdjusted + ":" + leaveTimeMinute
 		$(".save_event").click(function(){
 			driveEvent.set("eventName", $('.event_name').val());
 			driveEvent.set("eventStartYear", startDatePicker.get('select').year);
@@ -220,5 +223,20 @@ CreateEventView = Backbone.View.extend({
 	cancel: function() {
 		router.navigate('home', {trigger: true});
 	}		
+
+})
+
+EditEventView = Backbone.View.extend({
+	template: _.template(  $('#edit-event-template').text() ),
+
+	initialize: function() {
+		$('.container').append(this.el)
+		this.render()
+		console.log(this.model.get('eventName'))
+	},
+
+	render: function(){
+		this.$el.append(this.template({calendarEvent: this.model}))
+	}
 
 })

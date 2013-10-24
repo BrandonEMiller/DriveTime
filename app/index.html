@@ -28,10 +28,10 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-        <!-- <div class="links">
+        <div class="links">
             <a href="#/home">Home</a>
             <a href="#/newEvent">New Event</a>
-        </div> -->
+        </div>
         <div class="container">
             
         </div>
@@ -84,6 +84,46 @@
             </div>
         </script>
 
+        <script type="text/template" id="edit-event-template">
+            <div class="input_container">
+                <input class="event_name"  value =<%=calendarEvent.get('eventName')%>>
+                <div class="date_input_wrapper">
+                    <input class="start_date" placeholder="Starting Date">
+                    <input class="start_time" placeholder="Starting Time">
+                </div>
+        
+                <div class="date_input_wrapper">
+                    <input class="end_date" placeholder="Ending Date">
+                    <input class="end_time" placeholder="Ending Time">
+                </div>
+                
+             
+                <div class="location">
+                    <input class="origin-street" placeholder="Starting Street Address">
+                    <input class="origin-city" placeholder="Starting City">
+                    <input class="origin-state" placeholder="Starting State">
+                </div>
+                <div class="location">
+                    <input class="destination-street" placeholder="End Street Address">
+                    <input class="destination-city" placeholder="End City">
+                    <input class="destination-state" placeholder="End State">
+                </div>
+                <button class="time">Check Route</button>
+
+                <button class="submit_dates">Submit Dates</button>
+
+                <button class="save_event">Save Event</button>
+
+                <button class="cancel_event">Cancel</button>
+              
+                <br>
+            </div>
+
+            <div class="map_container">
+                <div id="map"></div> 
+                <div id="panel"></div> 
+            </div>
+        </script>
 
         <!-- build:js scripts/vendor.js -->
         <!-- bower:js -->
