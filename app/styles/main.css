@@ -1,9 +1,10 @@
 body {
-   background: url(http://miriadna.com/desctopwalls/images/max/At-the-turn-of-the-road.jpg)no-repeat center center fixed; 
+  /* background: url(http://miriadna.com/desctopwalls/images/max/At-the-turn-of-the-road.jpg)no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover;;
+  background-size: cover;;*/
+  background: rgb(46,164,206);
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #333;
 }
@@ -23,6 +24,18 @@ a {
     padding: 60px;
 
 
+}
+
+.calendar_container {
+    width: 812px;
+    display: inline-block;
+}
+
+.daily_container {
+    width: 200px;
+    border: 1px solid black;
+    display: inline-block;
+    vertical-align: top;
 }
 
 .input_container {

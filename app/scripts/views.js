@@ -6,6 +6,7 @@ var EventCollection = Parse.Collection.extend({
 var calendar = new EventCollection();
 
 
+
 MainView = Backbone.View.extend({
 	template: _.template(  $('#main-template').text() ),
 
@@ -23,6 +24,7 @@ MainView = Backbone.View.extend({
 
 	render: function(){
 		this.$el.append(this.template())
+		this.daily()
 		$('.calendar').fullCalendar({
 			header: {
 				left:  'today prev,next',
@@ -70,6 +72,26 @@ MainView = Backbone.View.extend({
 		        alert('a day has been clicked!');
 		    }
 		});
+	},
+	daily: function () {
+		var queryMonth = new Parse.Query(Event);
+		var today = new Date()
+		queryMonth.equalTo("eventStartMonth", today.getMonth());
+		queryMonth.find({
+			  success: function(results) {
+			    
+			  	for (var i = 0; i < results.length; i++) { 
+			       var object = results[i];
+			       if (object.get('eventStartDate') == today.getDate()) {
+			       		$('.daily_container').append('<h3>' + object.get('eventName')+ '</h3><h5>Need to leave by ' + object.get('eventLeaveHourAdjusted') + ':' + object.get('eventLeaveMinute') + ' ' + object.get('timePeriod') + '</h5>')
+			       }
+			     
+			     }
+			  },
+			  error: function(error) {
+			    alert("Error: " + error.code + " " + error.message);
+			  }
+			});
 	},
 
 	new: function() {

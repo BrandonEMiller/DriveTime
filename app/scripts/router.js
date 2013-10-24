@@ -24,11 +24,7 @@ DriveTimeRouter = Backbone.Router.extend({
 			query.get(id, {
 			  success: function(object) {
 			    console.log ('Retrieved')
-			    // var calendarEvent = {eventName: object.get('eventName')}
-
-			    $('.container').html('') 
-				//console.log(calendarEvent)
-				//console.log(calendarEvent.eventName)
+			  	$('.container').html('') 
 				new EditEventView({model: object})
 			  },
 			  error: function(object, error) {
@@ -36,10 +32,6 @@ DriveTimeRouter = Backbone.Router.extend({
 			    // error is a Parse.Error with an error code and description.
 			  }
 			});
-		//$('.container').html('') 
-		//console.log(calendarEvent)
-		//console.log(calendarEvent.get('eventName'))
-		// new EditEventView({model: calendarEvent})
 	}
 
 })
