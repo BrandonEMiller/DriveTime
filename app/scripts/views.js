@@ -46,7 +46,8 @@ MainView = Backbone.View.extend({
 					    		start: object.get('eventStartYear') + '-' + (object.get('eventStartMonth')+1)+ '-' + object.get('eventLeaveDate') + ' ' + object.get('eventLeaveHour')+':' + object.get('eventLeaveMinute'),
 					    		end: object.get('eventStartYear') + '-' + (object.get('eventStartMonth')+1)+ '-' + object.get('eventStartDate') + ' ' + object.get('eventStartHour')+':' + object.get('eventStartMin'),
 					    		allDay: false,
-					    		color: 'green'
+					    		color: 'green',
+					    		id: object.id
 					    	})
 					    });
 					    console.log(data)
@@ -237,6 +238,39 @@ EditEventView = Backbone.View.extend({
 
 	render: function(){
 		this.$el.append(this.template({calendarEvent: this.model}))
-	}
+		this.checkRoute()
+	},
+
+	checkRoute: function(){
+		var directionsService = new google.maps.DirectionsService();
+		var directionsDisplay = new google.maps.DirectionsRenderer();
+		
+		var map = new google.maps.Map(document.getElementById('map'), {
+	       zoom:7,
+	       mapTypeId: google.maps.MapTypeId.ROADMAP
+	     });
+
+	     directionsDisplay.setMap(map);
+	     directionsDisplay.setPanel(document.getElementById('panel'));
+
+		var request = {
+		    origin: $('.origin-street').val() +', '+ $('.origin-city').val() +', ' + $('.origin-state').val(), 
+		    destination: $('.destination-street').val() +', '+ $('.destination-city').val() +', ' + $('.destination-state').val(), 
+		    travelMode: google.maps.DirectionsTravelMode.DRIVING
+		};
+		directionsService.route(request, function(response, status) {
+		    if (status == google.maps.DirectionsStatus.OK) {
+		        var route = response.routes[0];
+		        route_time= Math.round(route.legs[0].duration.value/60)
+		        directionsDisplay.setDirections(response);
+
+		        $('.container').append(route_time + ' minutes <br>')
+		       }
+
+		    else {
+		    	console.log("Error")
+		    }
+		});
+	},
 
 })
