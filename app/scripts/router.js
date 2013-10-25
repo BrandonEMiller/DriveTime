@@ -4,7 +4,7 @@ DriveTimeRouter = Backbone.Router.extend({
 		"home"		: "home",
 		"events/:_id"	: "showEvent",
 		"newEvent"	: "createNew",
-		"#": "home"
+		"": "home"
 		
 	},
 

@@ -23,6 +23,21 @@ header {
    margin: 0;
 }
 
+input {
+    background: rgb(153,205,255);
+    box-shadow: 0;
+
+}
+
+input:focus {
+    background: rgb(232,232,232);
+}
+
+[placeholder] {
+    font-family: Raleway;
+    color: white;
+}
+
 [placeholder]:focus::-webkit-input-placeholder {
   transition: opacity 0.5s 0.5s ease; 
   opacity: 0;
@@ -157,6 +172,15 @@ a {
      background: #eee
 }
 
+footer {
+    background: rgb(46,164,206);
+   width: 100%; 
+   height: 60px;
+   z-index: 200;
+   vertical-align: bottom;
+   margin: 0;
+
+}
 .browsehappy {
     margin: 0.2em 0;
     background: #ccc;
