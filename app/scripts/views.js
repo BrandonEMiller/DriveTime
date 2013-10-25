@@ -69,8 +69,9 @@ MainView = Backbone.View.extend({
 		    },
 
 		    dayClick: function() {
-		        alert('a day has been clicked!');
-		    }
+		        console.log('a day has been clicked!');
+		    },
+
 		});
 	},
 	daily: function () {
@@ -79,14 +80,22 @@ MainView = Backbone.View.extend({
 		queryMonth.equalTo("eventStartMonth", today.getMonth());
 		queryMonth.find({
 			  success: function(results) {
-			    
+			    var count = 0;
 			  	for (var i = 0; i < results.length; i++) { 
 			       var object = results[i];
 			       if (object.get('eventStartDate') == today.getDate()) {
-			       		$('.daily_container').append('<h3>' + object.get('eventName')+ '</h3><h5>Need to leave by ' + object.get('eventLeaveHourAdjusted') + ':' + object.get('eventLeaveMinute') + ' ' + object.get('timePeriod') + '</h5>')
+			       		count = count + 1;
+			       		$('.daily_container').append('<h3>' + object.get('eventName')+ 
+			       									':</h3><h5>Need to leave by ' + object.get('eventLeaveHourAdjusted') + ':' + object.get('eventLeaveMinute') + ' ' + object.get('timePeriod') + 
+			       									'</h5><h5>Event is located at ' + object.get('endingAddress') + ' in ' + object.get('endingCity') + ', ' + object.get('endingState') + 
+			       									'</h5><div class=underline_border></div>' )
 			       }
+			       
 			     
 			     }
+			     if (count == 0) {
+			       		$('.daily_container').append('<h3> No Events Scheduled Today </h3>')
+			       }
 			  },
 			  error: function(error) {
 			    alert("Error: " + error.code + " " + error.message);
