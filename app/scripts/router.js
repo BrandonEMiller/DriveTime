@@ -1,16 +1,22 @@
 DriveTimeRouter = Backbone.Router.extend({
 
 	routes: {
-		"home"		: "home",
+		"home"			: "home",
 		"events/:_id"	: "showEvent",
-		"newEvent"	: "createNew",
-		"": "home"
+		"newEvent"		: "createNew",
+		"about"			: "about",
+		""				: "home"
 		
 	},
 
 	home: function() {
 		$('.container').html('') 
 		new MainView()
+	},
+
+	about: function() {
+		$('.container').html('') 
+		new AboutView()
 	},
 
 	createNew: function() {
