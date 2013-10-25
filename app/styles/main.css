@@ -23,6 +23,11 @@ header {
    margin: 0;
 }
 
+[placeholder]:focus::-webkit-input-placeholder {
+  transition: opacity 0.5s 0.5s ease; 
+  opacity: 0;
+}
+
 .header_container {
     width: 1020px;
     margin: 0 auto;
