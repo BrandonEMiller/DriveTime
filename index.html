@@ -10,7 +10,7 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-        <link rel="stylesheet" href="styles/e15fd276.main.css">
+        <link rel="stylesheet" href="styles/d20842d3.main.css">
         <link href="http://fonts.googleapis.com/css?family=Quicksand:300|Raleway:100" rel="stylesheet" type="text/css">
         <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBEU3I5Ps1tKBkAYXaNQbMzU1djRVqvSuE&sensor=true">
         </script>
@@ -29,7 +29,7 @@
                 <a href="#/newEvent">
                     <div class="header_text">New Event</div>
                 </a>
-                <a href="#/home">
+                <a href="#/about">
                     <div class="header_text">About</div>
                 </a>
                 <a href="https://github.com/BrandonEMiller/DriveTime">
@@ -45,12 +45,15 @@
         <div class="container">
 
 
-
             
         </div>
 
         <footer>
-
+            <div class="footer_container">
+                <a href="http://github.com/BrandonEMiller?tab=contributions&period=weekly">
+                    <h3>Created by Brandon Miller. Be sure to check my GitHub</h3>
+                </a>
+            </div>
         </footer>
 
         <script type="text/template" id="main-template">
@@ -59,9 +62,23 @@
                 <div class="calendar"></div>    
             </div>
             <div class="daily_container">
-                <h2>Events of the Day</h2>
+                <h2>Todays Events:</h2>
 
             </div>
+
+        </script>
+
+        <script type="text/template" id="about-template"> 
+            <p>DriveTime was created by Brandon E. Miller as a Final Project during his time at The Iron Yard Academy.  This project was inspired from his experience meeting with individuals met in prior jobs that always seemed to have trouble with planning travel time into their schedules.  This lack of planning often made them late to various appointments, so DriveTime is an attempt to take a step to solve this issue.</p>
+
+            <p>DriveTime utilizes the Google Maps API to calculate the time and directions that an individual will take getting from place to place.  All credit for this information goes to the team at Google and information about the Google Maps API can be found <a href="https://developers.google.com/maps/documentation/javascript/tutorial.">here</a>.</p>
+
+            <p>The calendar displayed on the home page of this application is created utilizing the <a href="http://arshaw.com/fullcalendar/">Full Calendar</a> JQuery plugin created by Adam Shaw. The data used in this Calendar is stored and retrieved using <a href="http://www.parse.com/">Parse</a>.  Lastly the the input for dates and times is created by utilizing the date picker and time picker from <a href="http://amsul.ca/pickadate.js/">pickadate.js</a>.</p>
+
+             <p>DriveTime calculates route information based on average drive time from one point to another, it cannot at this time factor in time of day traffic, accidents, or unforseen events that may cause your trip to take longer.  When using DriveTime be sure to keep in mind that the data calculated cannot factor in the amount of time it takes you to walk to and from your car so be sure when planning your schedule for important meetings to leave earlier than DriveTime advises you.</p>
+
+             <p>Notice a bug or have a suggestion for the future, let us know on <a href="http://github.com/BrandonEMiller/DriveTime">GitHub</a>.  Thank you for using DriveTime.</p>
+
 
         </script>
 
@@ -112,12 +129,12 @@
                 <input class="event_name"  value =<%= '"' +calendarEvent.get('eventName') + '"'%>>
                 <div class="date_input_wrapper">
                     <input class="start_date" value =<%= '"' +(calendarEvent.get('eventStartMonth') + 1)+ "-" + calendarEvent.get('eventStartDate') + '-' + calendarEvent.get('eventStartYear') + '"'%>>
-                    <input class="start_time" value =<%= '"' +calendarEvent.get('eventStartHour') + ":" + calendarEvent.get('eventStartMin') + '"'%>>
+                    <input class="start_time" value =<%= '"' +calendarEvent.get('eventStartTimeString')  + '"'%>>
                 </div>
         
                 <div class="date_input_wrapper">
                     <input class="end_date" value =<%= '"' +(calendarEvent.get('eventEndMonth') + 1)+ "-" + calendarEvent.get('eventEndDate') + '-' + calendarEvent.get('eventEndYear') + '"'%>>
-                    <input class="end_time" value =<%= '"' +calendarEvent.get('eventEndHour') + ":" + calendarEvent.get('eventEndMin') + '"'%>>
+                    <input class="end_time" value =<%= '"' +calendarEvent.get('eventEndTimeString') + '"'%>>
                 </div>
                 
              
@@ -160,6 +177,6 @@
             ga('create','UA-XXXXX-X');ga('send','pageview');
         </script>
 
-        <script src="scripts/90f967b8.main.js"></script>
+        <script src="scripts/5cfc1aad.main.js"></script>
 </body>
 </html>
