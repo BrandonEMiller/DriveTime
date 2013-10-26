@@ -1,10 +1,3 @@
-// var Event = Parse.Object.extend("Event");
-// var EventCollection = Parse.Collection.extend({
-// 	model:Event
-// })
-
-// var calendar = new EventCollection();
-
 CreateEventView = Backbone.View.extend({
 	
 	template: _.template(  $('#new-event-template').text() ),
