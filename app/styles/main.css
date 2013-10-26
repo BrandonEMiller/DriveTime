@@ -118,6 +118,10 @@ a {
     text-align: center;
 }
 
+.daily_container h2 {
+    margin-top: 50px;
+}
+
 .daily_container h3 {
     margin: 0;
     margin-top: 40px;
@@ -131,6 +135,7 @@ a {
 }
 
 .underline_border {
+    margin-top: 20px;
     border-bottom: 1px solid black;
 }
 
@@ -204,6 +209,12 @@ footer {
    z-index: 200;
    vertical-align: bottom;
    margin: 0;
+}
+
+.footer_container {
+     width: 1020px;
+    margin: 0 auto;
+    height: 100%;
 }
 
 footer h3 {
