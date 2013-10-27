@@ -118,9 +118,38 @@ CreateEventView = Backbone.View.extend({
 		}
 
 		var leaveTimeDate = startDatePicker.get('select').date
+		var leaveTimeMonth = startDatePicker.get('select').month
+		var leaveTimeYear	= startDatePicker.get('select').year
 		if (leaveTimeHour<0) {
 			leaveTimeHour+=24
-			leaveTimeDate-=1
+			if(leaveTimeDate > 1){
+				leaveTimeDate-=1
+			} else {
+				leaveTimeDate=31
+				leaveTimeMonth-=1
+				if (leaveTimeMonth == 1) {
+					leaveTimeDate=28
+				}
+				if (leaveTimeMonth == 8){
+					leaveTimeDate = 30
+				}
+				if (leaveTimeMonth == 10){
+					leaveTimeDate = 30
+				}
+				if (leaveTimeMonth == 3){
+					leaveTimeDate = 30
+				}
+				if (leaveTimeMonth == 5){
+					leaveTimeDate = 30
+				}
+				if (leaveTimeMonth == -1){
+					leaveTimeMonth=11
+					leaveTimeDate=31
+					leaveTimeYear-=1
+				}
+
+
+			}
 		}
 		if((diff/60)>=12) {
 			timePeriod = "PM"
@@ -149,6 +178,8 @@ CreateEventView = Backbone.View.extend({
 			driveEvent.set("eventEndMin", endTimePicker.get('select').mins);
 			driveEvent.set("eventLeaveTime", leaveForMeeting);
 			driveEvent.set("eventLeaveDate", leaveTimeDate);
+			driveEvent.set("eventLeaveMonth", leaveTimeMonth);
+			driveEvent.set("eventLeaveYear", leaveTimeYear);
 			driveEvent.set("eventLeaveHour", leaveTimeHour);
 			driveEvent.set("eventLeaveMinute", leaveTimeMinute);
 			driveEvent.set("eventLeaveHourAdjusted", leaveTimeHourAdjusted);
