@@ -32,10 +32,6 @@ CreateEventView = Backbone.View.extend({
 		this.$el.append(this.template())
 	},
 
-	destroy: function() {
-		this.remove()	
-	},
-
 
 	checkRoute: function(){
 		var directionsService = new google.maps.DirectionsService();

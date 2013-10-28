@@ -4,7 +4,8 @@ EditEventView = Backbone.View.extend({
 	events: {
 		"click .time": "checkRoute",
 		"click .submit_dates": "save",
-		"click .cancel_event": "cancel"
+		"click .cancel_event": "cancel",
+		"click .delete_event": "deleteEvent"
 
 	},
 
@@ -198,5 +199,23 @@ EditEventView = Backbone.View.extend({
 		})	 
 		$('.container').append('You need to leave at ' + leaveForMeeting + ' ' + timePeriod)
 	},
+
+	cancel: function() {
+		router.navigate('home', {trigger: true});
+	},
+
+	deleteEvent: function() {
+		var driveEvent = this.model
+		driveEvent.destroy({
+  			success: function(driveEvent) {
+  				console.log("Event was deleted")
+  				router.navigate('home', {trigger: true});
+			    
+			  },
+			  error: function(driveEvent, error) {
+			    
+			  }
+			});
+	}
 
 })
