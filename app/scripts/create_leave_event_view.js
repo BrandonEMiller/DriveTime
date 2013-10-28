@@ -81,8 +81,33 @@ CreateLeaveEventView = Backbone.View.extend({
 		var leaveTimeHourAdjusted = leaveTimePicker.get('select').hours
 		var startTimeHourAdjusted = startEventHour
 		var startEventDay = leaveDatePicker.get('select').date
+		var startEventMonth = leaveDatePicker.get('select').month
+		var startEventYear = leaveDatePicker.get('select').year
+
 		if (startTimeHourAdjusted >= 24) {
 			startEventDay+=1
+			if (startEventDay > 31) {
+				startEventDay = 1
+				startEventMonth+= 1
+				if (startEventMonth == 12) {
+					startEventMonth=0
+					startEventYear+=1
+				}
+			}
+			if (startEventMonth== 1){
+				if(startEventDay>28){
+					startEventDay=1
+					startEventMonth=2
+				}
+
+			}
+
+			if(startEventDay>30){
+				if (startEventMonth == 10 || 8 || 5 || 3){
+					startEventDay=1
+					startEventMonth+=1
+				}
+			}
 			startTimeHourAdjusted-=24
 			startEventHour-=24
 			
@@ -105,11 +130,39 @@ CreateLeaveEventView = Backbone.View.extend({
 		var endTimePeriod = "AM"
 		var endTimeHourAdjusted = endEventHour
 		var endEventDay = leaveDatePicker.get('select').date
+		var endEventMonth = leaveDatePicker.get('select').month
+		var endEventYear = leaveDatePicker.get('select').year
+
 
 		if (endTimeHourAdjusted >= 24) {
 			endEventDay+=1
+			if (endEventDay > 31) {
+				endEventDay = 1
+				endEventMonth+= 1
+				if (endEventMonth == 12) {
+					endEventMonth=0
+					endEventYear+=1
+				}
+			}
+			if (endEventMonth== 1){
+				if(endEventDay>28){
+					endEventDay=1
+					endEventMonth=2
+				}
+
+			}
+
+			if(endEventDay>30){
+				if (endEventMonth == 10 || 8 || 5 || 3){
+					endEventDay=1
+					endEventMonth+=1
+				}
+			}
+			
+
 			endTimeHourAdjusted-=24
 			endEventHour-=24
+
 			if(endTimeHourAdjusted>=12) {
 				endTimePeriod = "PM"
 				endTimeHourAdjusted-=12
@@ -125,40 +178,6 @@ CreateLeaveEventView = Backbone.View.extend({
 			var endTimeString =""+ endTimeHourAdjusted + ":" + endEventMins + " " + endTimePeriod + "";
 		}
 
-		// var leaveTimeDate = startDatePicker.get('select').date
-		// var leaveTimeMonth = startDatePicker.get('select').month
-		// var leaveTimeYear	= startDatePicker.get('select').year
-		// if (leaveTimeHour<0) {
-		// 	leaveTimeHour+=24
-		// 	if(leaveTimeDate > 1){
-		// 		leaveTimeDate-=1
-		// 	} else {
-		// 		leaveTimeDate=31
-		// 		leaveTimeMonth-=1
-		// 		if (leaveTimeMonth == 1) {
-		// 			leaveTimeDate=28
-		// 		}
-		// 		if (leaveTimeMonth == 8){
-		// 			leaveTimeDate = 30
-		// 		}
-		// 		if (leaveTimeMonth == 10){
-		// 			leaveTimeDate = 30
-		// 		}
-		// 		if (leaveTimeMonth == 3){
-		// 			leaveTimeDate = 30
-		// 		}
-		// 		if (leaveTimeMonth == 5){
-		// 			leaveTimeDate = 30
-		// 		}
-		// 		if (leaveTimeMonth == -1){
-		// 			leaveTimeMonth=11
-		// 			leaveTimeDate=31
-		// 			leaveTimeYear-=1
-		// 		}
-
-
-		// 	}
-		// }
 		if(leaveTimeHourAdjusted>=12) {
 			timePeriod = "PM"
 			leaveTimeHourAdjusted-=12
@@ -170,15 +189,15 @@ CreateLeaveEventView = Backbone.View.extend({
 		var leaveForMeeting = "" + leaveTimeHourAdjusted + ":" + leaveTimePicker.get('select').mins
 		$(".save_event").click(function(){
 			driveEvent.set("eventName", $('.event_name').val());
-			driveEvent.set("eventStartYear", leaveDatePicker.get('select').year);
-			driveEvent.set("eventStartMonth", leaveDatePicker.get('select').month);
+			driveEvent.set("eventStartYear", startEventYear);
+			driveEvent.set("eventStartMonth", startEventMonth);
 			driveEvent.set("eventStartDate", startEventDay);
 			driveEvent.set("eventStartHour", startEventHour);
 			driveEvent.set("eventStartHourAdjusted", startTimeHourAdjusted);
 			driveEvent.set("eventStartTimeString", startTimeString);
 			driveEvent.set("eventStartMin", startEventMins);
-			driveEvent.set("eventEndYear", leaveDatePicker.get('select').year);
-			driveEvent.set("eventEndMonth", leaveDatePicker.get('select').month);
+			driveEvent.set("eventEndYear", endEventYear);
+			driveEvent.set("eventEndMonth", endEventMonth);
 			driveEvent.set("eventEndDate", endEventDay);
 			driveEvent.set("eventEndHour", endEventHour);
 			driveEvent.set("eventEndHourAdjusted", endTimeHourAdjusted);
