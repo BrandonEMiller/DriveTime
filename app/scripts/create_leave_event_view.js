@@ -80,13 +80,22 @@ CreateLeaveEventView = Backbone.View.extend({
 		var startTimePeriod = "AM"
 		var leaveTimeHourAdjusted = leaveTimePicker.get('select').hours
 		var startTimeHourAdjusted = startEventHour
-		if(startTimeHourAdjusted>=12) {
-			startTimePeriod = "PM"
-			startTimeHourAdjusted-=12
-			if(startTimeHourAdjusted == 0) {
-				startTimeHourAdjusted=12
+		var startEventDay = leaveDatePicker.get('select').date
+		if (startTimeHourAdjusted >= 24) {
+			startEventDay+=1
+			startTimeHourAdjusted-=24
+			startEventHour-=24
+			
+			if(startTimeHourAdjusted>=12) {
+				startTimePeriod = "PM"
+				startTimeHourAdjusted-=12
+				
+				if(startTimeHourAdjusted == 0) {
+					startTimeHourAdjusted=12
+				}
 			}
 		}
+		
 		if (startEventMins == 0){
 			var startTimeString =""+ startTimeHourAdjusted + ":" + startEventMins + "0 " + startTimePeriod + "";
 		} else {
@@ -95,13 +104,21 @@ CreateLeaveEventView = Backbone.View.extend({
 
 		var endTimePeriod = "AM"
 		var endTimeHourAdjusted = endEventHour
-		if(endTimeHourAdjusted>=12) {
-			endTimePeriod = "PM"
-			endTimeHourAdjusted-=12
-			if(endTimeHourAdjusted == 0) {
-				endTimeHourAdjusted=12
+		var endEventDay = leaveDatePicker.get('select').date
+
+		if (endTimeHourAdjusted >= 24) {
+			endEventDay+=1
+			endTimeHourAdjusted-=24
+			endEventHour-=24
+			if(endTimeHourAdjusted>=12) {
+				endTimePeriod = "PM"
+				endTimeHourAdjusted-=12
+				if(endTimeHourAdjusted == 0) {
+					endTimeHourAdjusted=12
+				}
 			}
 		}
+
 		if (endEventMins == 0){
 			var endTimeString =""+ endTimeHourAdjusted + ":" + endEventMins + "0 " + endTimePeriod + "";
 		} else {
@@ -155,14 +172,14 @@ CreateLeaveEventView = Backbone.View.extend({
 			driveEvent.set("eventName", $('.event_name').val());
 			driveEvent.set("eventStartYear", leaveDatePicker.get('select').year);
 			driveEvent.set("eventStartMonth", leaveDatePicker.get('select').month);
-			driveEvent.set("eventStartDate", leaveDatePicker.get('select').date);
+			driveEvent.set("eventStartDate", startEventDay);
 			driveEvent.set("eventStartHour", startEventHour);
 			driveEvent.set("eventStartHourAdjusted", startTimeHourAdjusted);
 			driveEvent.set("eventStartTimeString", startTimeString);
 			driveEvent.set("eventStartMin", startEventMins);
 			driveEvent.set("eventEndYear", leaveDatePicker.get('select').year);
 			driveEvent.set("eventEndMonth", leaveDatePicker.get('select').month);
-			driveEvent.set("eventEndDate", leaveDatePicker.get('select').date);
+			driveEvent.set("eventEndDate", endEventDay);
 			driveEvent.set("eventEndHour", endEventHour);
 			driveEvent.set("eventEndHourAdjusted", endTimeHourAdjusted);
 			driveEvent.set("eventEndTimeString", endTimeString);
