@@ -128,12 +128,12 @@
             <div class="input_container">
                 <input class="event_name"  value =<%= '"' +calendarEvent.get('eventName') + '"'%>>
                 <div class="date_input_wrapper">
-                    <input class="start_date" value =<%= '"' +(calendarEvent.get('eventStartMonth') + 1)+ "-" + calendarEvent.get('eventStartDate') + '-' + calendarEvent.get('eventStartYear') + '"'%>>
+                    <input class="start_date">
                     <input class="start_time" value =<%= '"' +calendarEvent.get('eventStartTimeString')  + '"'%>>
                 </div>
         
                 <div class="date_input_wrapper">
-                    <input class="end_date" value =<%= '"' +(calendarEvent.get('eventEndMonth') + 1)+ "-" + calendarEvent.get('eventEndDate') + '-' + calendarEvent.get('eventEndYear') + '"'%>>
+                    <input class="end_date">
                     <input class="end_time" value =<%= '"' +calendarEvent.get('eventEndTimeString') + '"'%>>
                 </div>
                 
@@ -154,7 +154,9 @@
 
                 <button class="save_event">Save Event</button>
 
-                <button class="cancel_event">Cancel</button>
+                <button class="cancel_event">Cancel</button> 
+
+                <button class="delete_event">Delete Event</button>
               
                 <br>
             </div>
@@ -177,6 +179,6 @@
             ga('create','UA-XXXXX-X');ga('send','pageview');
         </script>
 
-        <script src="scripts/a92764ed.main.js"></script>
+        <script src="scripts/7c973a33.main.js"></script>
 </body>
 </html>
