@@ -20,11 +20,11 @@ CreateEventView = Backbone.View.extend({
 
 		var $startInput = $('.start_date').pickadate()
 		var startDatePicker = $startInput.pickadate('picker')
-		var $startTimeInput = $('.start_time').pickatime()
+		var $startTimeInput = $('.start_time').pickatime({interval: 15})
 		var startTimePicker = $startTimeInput.pickatime('picker')
 		var $endInput = $('.end_date').pickadate()
 		var endDatePicker = $endInput.pickadate('picker')
-		var $endTimeInput =  $('.end_time').pickatime()
+		var $endTimeInput =  $('.end_time').pickatime({interval: 15})
 		var endTimePicker = $endTimeInput.pickatime('picker')
 	},
 

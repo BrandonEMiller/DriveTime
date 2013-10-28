@@ -17,12 +17,12 @@ EditEventView = Backbone.View.extend({
 		var $startInput = $('.start_date').pickadate()
 		var startDatePicker = $startInput.pickadate('picker')
 		startDatePicker.set('select', [this.model.get('eventStartYear'), this.model.get('eventStartMonth'), this.model.get('eventStartDate')])
-		var $startTimeInput = $('.start_time').pickatime()
+		var $startTimeInput = $('.start_time').pickatime({interval: 15})
 		var startTimePicker = $startTimeInput.pickatime('picker')
 		var $endInput = $('.end_date').pickadate()
 		var endDatePicker = $endInput.pickadate('picker')
 		endDatePicker.set('select', [this.model.get('eventEndYear'), this.model.get('eventEndMonth'), this.model.get('eventEndDate')])
-		var $endTimeInput =  $('.end_time').pickatime()
+		var $endTimeInput =  $('.end_time').pickatime({interval: 15})
 		var endTimePicker = $endTimeInput.pickatime('picker')
 	},
 
