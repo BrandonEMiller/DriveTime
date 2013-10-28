@@ -80,6 +80,7 @@ MainView = Backbone.View.extend({
 		var queryMonth = new Parse.Query(Event);
 		var today = new Date()
 		queryMonth.equalTo("eventStartMonth", today.getMonth());
+		queryMonth.ascending("eventLeaveHour")
 		queryMonth.find({
 			  success: function(results) {
 			    var count = 0;
