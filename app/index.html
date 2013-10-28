@@ -92,7 +92,9 @@
 
 
         <script type="text/template" id="new-event-template">
+
             <div class="input_container">
+                
                 <input class="event_name" placeholder="Event">
                 <div class="date_input_wrapper">
                     <input class="start_date" placeholder="Starting Date">
@@ -122,6 +124,57 @@
                 <button class="save_event">Save Event</button>
 
                 <button class="cancel_event">Cancel</button>
+
+                <br>
+
+                <button class="new_leave">Schedule by Leave Time Instead</button>
+              
+                <br>
+            </div>
+
+            <div class="map_container">
+                <div id="map"></div> 
+                <div id="panel"></div> 
+            </div>
+        </script>
+
+        <script type="text/template" id="new-leave-event-template">
+
+            <div class="input_container">
+                
+                <input class="event_name" placeholder="Event">
+                <div class="date_input_wrapper">
+                    <input class="leave_date" placeholder="Departure Date">
+                    <input class="leave_time" placeholder="Departure Time">
+                </div>
+        
+                <div class="date_input_wrapper">
+                    <input class="hour_length" placeholder="Duration Hours">
+                    <input class="minute_length" placeholder="Duration Minutes">
+                </div>
+                
+             
+                <div class="location">
+                    <input class="origin-street" placeholder="Starting Street Address">
+                    <input class="origin-city" placeholder="Starting City">
+                    <input class="origin-state" placeholder="Starting State">
+                </div>
+                <div class="location">
+                    <input class="destination-street" placeholder="End Street Address">
+                    <input class="destination-city" placeholder="End City">
+                    <input class="destination-state" placeholder="End State">
+                </div>
+                <button class="time">Check Route</button>
+
+                <button class="submit_dates">Submit Dates</button>
+
+                <button class="save_event">Save Event</button>
+
+                <button class="cancel_event">Cancel</button>
+
+                <br>
+
+                <button class="new_normal_event">Schedule by Start Time Instead</button>
               
                 <br>
             </div>
@@ -199,12 +252,11 @@
         <script src="scripts/picker.js"></script>
         <script src="scripts/picker.date.js"></script>
         <script src="scripts/picker.time.js"></script>
-        <script src="scripts/main.js"></script>
         <script src="scripts/main_view.js"></script>
         <script src="scripts/about_view.js"></script>
         <script src="scripts/edit_event_view.js"></script>
         <script src="scripts/create_event_view.js"></script>
-
+        <script src="scripts/create_leave_event_view.js"></script>
         <script src="scripts/router.js"></script>
 
         <!-- endbuild -->

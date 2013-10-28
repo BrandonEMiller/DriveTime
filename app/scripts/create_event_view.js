@@ -5,7 +5,8 @@ CreateEventView = Backbone.View.extend({
 	events: {
 		"click .time": "checkRoute",
 		"click .submit_dates": "save",
-		"click .cancel_event": "cancel"
+		"click .cancel_event": "cancel",
+		"click .new_leave": "newLeaveEvent"
 
 	},
 
@@ -204,6 +205,10 @@ CreateEventView = Backbone.View.extend({
 
 	cancel: function() {
 		router.navigate('home', {trigger: true});
+	},
+
+	newLeaveEvent: function() {
+		router.navigate('new_leave_event', {trigger: true});
 	}		
 
 })

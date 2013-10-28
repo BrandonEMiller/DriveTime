@@ -4,6 +4,7 @@ DriveTimeRouter = Backbone.Router.extend({
 		"home"			: "home",
 		"events/:_id"	: "showEvent",
 		"newEvent"		: "createNew",
+		"new_leave_event": "createNewLeave",
 		"about"			: "about",
 		""				: "home"
 		
@@ -22,6 +23,11 @@ DriveTimeRouter = Backbone.Router.extend({
 	createNew: function() {
 		 $('.container').html('') 
 		 new CreateEventView()	 
+	},
+
+	createNewLeave: function() {
+		$('.container').html('') 
+		new CreateLeaveEventView()	
 	},
 
 	showEvent: function(id) {
