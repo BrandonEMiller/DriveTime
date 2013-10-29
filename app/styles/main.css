@@ -1,9 +1,5 @@
 body {
-  /* background: url(http://miriadna.com/desctopwalls/images/max/At-the-turn-of-the-road.jpg)no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;;*/
+  
   
     background: rgb(84,131,81) ; 
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -26,6 +22,10 @@ header {
 button {
     background: rgb(0,137,236);
     color: rgb(232,232,232);
+}
+
+button:disabled {
+    background: black;
 }
 
 input {

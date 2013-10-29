@@ -56,6 +56,7 @@ CreateEventView = Backbone.View.extend({
 		        var route = response.routes[0];
 		        route_time= Math.round(route.legs[0].duration.value/60)
 		        directionsDisplay.setDirections(response);
+		  
 
 		        $('.container').append(route_time + ' minutes <br>')
 		       }
@@ -63,6 +64,7 @@ CreateEventView = Backbone.View.extend({
 		    else {
 		    	console.log("Error")
 		    }
+
 		});
 	},
 
