@@ -10,7 +10,7 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-        <link rel="stylesheet" href="styles/d20842d3.main.css">
+        <link rel="stylesheet" href="styles/3b7f03c3.main.css">
         <link href="http://fonts.googleapis.com/css?family=Quicksand:300|Raleway:100" rel="stylesheet" type="text/css">
         <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBEU3I5Ps1tKBkAYXaNQbMzU1djRVqvSuE&sensor=true">
         </script>
@@ -66,6 +66,7 @@
 
             </div>
 
+
         </script>
 
         <script type="text/template" id="about-template"> 
@@ -86,7 +87,7 @@
         <script type="text/template" id="new-event-template">
 
             <div class="input_container">
-                
+                <h2>New Event By Start and End Time</h2>
                 <input class="event_name" placeholder="Event">
                 <div class="date_input_wrapper">
                     <input class="start_date" placeholder="Starting Date">
@@ -109,17 +110,19 @@
                     <input class="destination-city" placeholder="End City">
                     <input class="destination-state" placeholder="End State">
                 </div>
-                <button class="time">Check Route</button>
 
-                <button class="submit_dates">Submit Dates</button>
+                <div class="button_container_input">
+                    <button class="time">Check Route</button>
+                </div>
+                
 
-                <button class="save_event">Save Event</button>
+                <div class="button_container">
+                    <button class="cancel_event">Cancel</button>
+                    <button class="new_leave">Schedule by Leave Time Instead</button>
+                    
+                </div>
 
-                <button class="cancel_event">Cancel</button>
-
-                <br>
-
-                <button class="new_leave">Schedule by Leave Time Instead</button>
+                
               
                 <br>
             </div>
@@ -133,7 +136,7 @@
         <script type="text/template" id="new-leave-event-template">
 
             <div class="input_container">
-                
+                <h2>New Event By Leave Time</h2>
                 <input class="event_name" placeholder="Event">
                 <div class="date_input_wrapper">
                     <input class="leave_date" placeholder="Departure Date">
@@ -156,17 +159,16 @@
                     <input class="destination-city" placeholder="End City">
                     <input class="destination-state" placeholder="End State">
                 </div>
-                <button class="time">Check Route</button>
+                <div class="button_container_input">
+                    <button class="time">Check Route</button>
+                </div>
+                
 
-                <button class="submit_dates">Submit Dates</button>
-
-                <button class="save_event">Save Event</button>
-
-                <button class="cancel_event">Cancel</button>
-
-                <br>
-
-                <button class="new_normal_event">Schedule by Start Time Instead</button>
+                <div class="button_container">
+                    <button class="cancel_event">Cancel</button>
+                    <button class="new_normal_event">Schedule by Start Time Instead</button>
+                    
+                </div>
               
                 <br>
             </div>
@@ -232,6 +234,6 @@
             ga('create','UA-XXXXX-X');ga('send','pageview');
         </script>
 
-        <script src="scripts/db10be01.main.js"></script>
+        <script src="scripts/d059b75e.main.js"></script>
 </body>
 </html>
