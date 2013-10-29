@@ -4,6 +4,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Mocha Spec Runner</title>
     <link rel="stylesheet" href="lib/mocha/mocha.css">
+    <link rel="stylesheet" href="../app/styles/main.css">
+    <link rel="stylesheet" href="../app/styles/default.css">
+    <link rel="stylesheet" href="../app/styles/default.date.css">
+    <link rel="stylesheet" href="../app/styles/default.time.css">
+    <link rel="stylesheet" href="../app/styles/fullcalendar.css">
+
+    <link href='http://fonts.googleapis.com/css?family=Quicksand:300|Raleway:100' rel='stylesheet' type='text/css'>
+    <script type="text/javascript"
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBEU3I5Ps1tKBkAYXaNQbMzU1djRVqvSuE&sensor=true">
+    </script>
+    <script src="http://www.parsecdn.com/js/parse-1.2.12.min.js"></script>
 </head>
 <body>
     <div id="mocha"></div>
@@ -13,11 +24,224 @@
     <script src="lib/chai.js"></script>
     <script>var expect = chai.expect</script>
 
+    
+
+     <header>
+            <div class="header_container">
+                <div class="header_title">DriveTime</div>
+                <a href="#/home">
+                    <div class="header_text">Home</div>
+                </a>
+                <a href="#/newEvent">
+                    <div class="header_text">New Event</div>
+                </a>
+                <a href="#/about">
+                    <div class="header_text">About</div>
+                </a>
+                <a href="https://github.com/BrandonEMiller/DriveTime">
+                    <div class="header_text">GitHub</div>
+                </a>
+            </div>
+            
+        </header>
+        <div class="links">
+        
+            <a href="#/newEvent">New Event</a>
+        </div>
+        <div class="container">
+
+
+            
+        </div>
+
+        <footer>
+            <div class="footer_container">
+                <a href="http://github.com/BrandonEMiller?tab=contributions&period=weekly">
+                    <h3>Created by Brandon Miller. Be sure to check my GitHub</h3>
+                </a>
+            </div>
+        </footer>
+
+        <script type="text/template" id="main-template">
+            
+            <div class="calendar_container">
+                <div class="calendar"></div>    
+            </div>
+            <div class="daily_container">
+                <h2>Todays Events:</h2>
+
+            </div>
+
+
+        </script>
+
+        <script type="text/template" id="about-template"> 
+            <p>DriveTime was created by Brandon E. Miller as a Final Project during his time at The Iron Yard Academy.  This project was inspired from his experience meeting with individuals met in prior jobs that always seemed to have trouble with planning travel time into their schedules.  This lack of planning often made them late to various appointments, so DriveTime is an attempt to take a step to solve this issue.</p>
+
+            <p>DriveTime utilizes the Google Maps API to calculate the time and directions that an individual will take getting from place to place.  All credit for this information goes to the team at Google and information about the Google Maps API can be found <a href="https://developers.google.com/maps/documentation/javascript/tutorial.">here</a>.</p>
+
+            <p>The calendar displayed on the home page of this application is created utilizing the <a href="http://arshaw.com/fullcalendar/">Full Calendar</a> JQuery plugin created by Adam Shaw. The data used in this Calendar is stored and retrieved using <a href="http://www.parse.com/">Parse</a>.  Lastly the the input for dates and times is created by utilizing the date picker and time picker from <a href="http://amsul.ca/pickadate.js/">pickadate.js</a>.</p>
+
+             <p>DriveTime calculates route information based on average drive time from one point to another, it cannot at this time factor in time of day traffic, accidents, or unforseen events that may cause your trip to take longer.  When using DriveTime be sure to keep in mind that the data calculated cannot factor in the amount of time it takes you to walk to and from your car so be sure when planning your schedule for important meetings to leave earlier than DriveTime advises you.</p>
+
+             <p>Notice a bug or have a suggestion for the future, let us know on <a href="http://github.com/BrandonEMiller/DriveTime">GitHub</a>.  Thank you for using DriveTime.</p>
+
+
+        </script>
+
+
+        <script type="text/template" id="new-event-template">
+
+            <div class="input_container">
+                <h2>New Event By Start and End Time</h2>
+                <input class="event_name" placeholder="Event">
+                <div class="date_input_wrapper">
+                    <input class="start_date" placeholder="Starting Date">
+                    <input class="start_time" placeholder="Starting Time">
+                </div>
+        
+                <div class="date_input_wrapper">
+                    <input class="end_date" placeholder="Ending Date">
+                    <input class="end_time" placeholder="Ending Time">
+                </div>
+                
+             
+                <div class="location">
+                    <input class="origin-street" placeholder="Starting Street Address">
+                    <input class="origin-city" placeholder="Starting City">
+                    <input class="origin-state" placeholder="Starting State">
+                </div>
+                <div class="location">
+                    <input class="destination-street" placeholder="End Street Address">
+                    <input class="destination-city" placeholder="End City">
+                    <input class="destination-state" placeholder="End State">
+                </div>
+
+                <div class="button_container_input">
+                    <button class="time">Check Route</button>
+                </div>
+                
+
+                <div class="button_container">
+                    <button class="cancel_event">Cancel</button>
+                    <button class="new_leave">Schedule by Leave Time Instead</button>
+                    
+                </div>
+
+                
+              
+                <br>
+            </div>
+
+            <div class="map_container">
+                <div id="map"></div> 
+                <div id="panel"></div> 
+            </div>
+        </script>
+
+        <script type="text/template" id="new-leave-event-template">
+
+            <div class="input_container">
+                <h2>New Event By Leave Time</h2>
+                <input class="event_name" placeholder="Event">
+                <div class="date_input_wrapper">
+                    <input class="leave_date" placeholder="Departure Date">
+                    <input class="leave_time" placeholder="Departure Time">
+                </div>
+        
+                <div class="date_input_wrapper">
+                    <input class="hour_length" placeholder="Duration Hours">
+                    <input class="minute_length" placeholder="Duration Minutes">
+                </div>
+                
+             
+                <div class="location">
+                    <input class="origin-street" placeholder="Starting Street Address">
+                    <input class="origin-city" placeholder="Starting City">
+                    <input class="origin-state" placeholder="Starting State">
+                </div>
+                <div class="location">
+                    <input class="destination-street" placeholder="End Street Address">
+                    <input class="destination-city" placeholder="End City">
+                    <input class="destination-state" placeholder="End State">
+                </div>
+                <div class="button_container_input">
+                    <button class="time">Check Route</button>
+                </div>
+                
+
+                <div class="button_container">
+                    <button class="cancel_event">Cancel</button>
+                    <button class="new_normal_event">Schedule by Start Time Instead</button>
+                    
+                </div>
+              
+                <br>
+            </div>
+
+            <div class="map_container">
+                <div id="map"></div> 
+                <div id="panel"></div> 
+            </div>
+        </script>
+
+        <script type="text/template" id="edit-event-template">
+            <div class="input_container">
+                <input class="event_name"  value =<%= '"' +calendarEvent.get('eventName') + '"'%>>
+                <div class="date_input_wrapper">
+                    <input class="start_date">
+                    <input class="start_time" value =<%= '"' +calendarEvent.get('eventStartTimeString')  + '"'%>>
+                </div>
+        
+                <div class="date_input_wrapper">
+                    <input class="end_date">
+                    <input class="end_time" value =<%= '"' +calendarEvent.get('eventEndTimeString') + '"'%>>
+                </div>
+                
+             
+                <div class="location">
+                    <input class="origin-street" value =<%= '"' +calendarEvent.get('startingAddress') + '"'%>>
+                    <input class="origin-city" value =<%= '"' +calendarEvent.get('startingCity') + '"'%>>
+                    <input class="origin-state" value =<%= '"' +calendarEvent.get('startingState') + '"'%>>
+                </div>
+                <div class="location">
+                    <input class="destination-street" value =<%= '"' +calendarEvent.get('endingAddress') + '"'%>>
+                    <input class="destination-city" value =<%= '"' +calendarEvent.get('endingCity') + '"'%>>
+                    <input class="destination-state" value =<%= '"' +calendarEvent.get('endingState') + '"'%>>
+                </div>
+                <button class="time">Check Route</button>
+
+                <button class="submit_dates">Submit Dates</button>
+
+                <button class="save_event">Save Event</button>
+
+                <button class="cancel_event">Cancel</button> 
+
+                <button class="delete_event">Delete Event</button>
+              
+                <br>
+            </div>
+
+            <div class="map_container">
+                <div id="map"></div> 
+                <div id="panel"></div> 
+            </div>
+        </script>
+
     <!-- include source files here... -->
     <script src="../app/bower_components/jquery/jquery.js"></script>
     <script src="../app/bower_components/underscore/underscore.js"></script> 
     <script src="../app/bower_components/backbone/backbone.js"></script>
-    <script src="../app/scripts/main.js"></script>
+    <script src="../app/bower_components/fullcalendar/fullcalendar.js"></script>
+    <script src="../app/scripts/picker.js"></script>
+    <script src="../app/scripts/picker.date.js"></script>
+    <script src="../app/scripts/picker.time.js"></script>
+    <script src="../app/scripts/main_view.js"></script>
+    <script src="../app/scripts/about_view.js"></script>
+    <script src="../app/scripts/edit_event_view.js"></script>
+    <script src="../app/scripts/create_event_view.js"></script>
+    <script src="../app/scripts/create_leave_event_view.js"></script>
+    <script src="../app/scripts/router.js"></script>
     <!-- include spec files here... -->
     <script src="spec/test.js"></script>
 
