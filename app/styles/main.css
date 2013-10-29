@@ -22,11 +22,16 @@ header {
 button {
     background: rgb(0,137,236);
     color: rgb(232,232,232);
+    height: 40px;
+    margin:  10px;
+    border-radius: 5px;
+    padding: 10px;
 }
 
-button:disabled {
-    background: black;
+button:focus {
+    outline: none;
 }
+
 
 input {
     background: rgb(153,205,255);
@@ -147,6 +152,22 @@ a {
     display: inline-block;
     height: 500px
     }
+
+.input_container h2 {
+    margin: 0 auto;
+    text-align: center;
+    font-family: Raleway;
+}
+
+.button_container_input{
+    width: 364px;
+    margin: 0 auto;
+}
+
+.button_container {
+    width: 300px;
+    margin: 0 auto;
+}
 .event_name {
     width: 90%;
     margin: 5px auto 30px;

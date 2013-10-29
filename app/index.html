@@ -74,6 +74,7 @@
 
             </div>
 
+
         </script>
 
         <script type="text/template" id="about-template"> 
@@ -94,7 +95,7 @@
         <script type="text/template" id="new-event-template">
 
             <div class="input_container">
-                
+                <h2>New Event By Start and End Time</h2>
                 <input class="event_name" placeholder="Event">
                 <div class="date_input_wrapper">
                     <input class="start_date" placeholder="Starting Date">
@@ -117,17 +118,19 @@
                     <input class="destination-city" placeholder="End City">
                     <input class="destination-state" placeholder="End State">
                 </div>
-                <button class="time">Check Route</button>
 
-                <button class="submit_dates">Submit Dates</button>
+                <div class="button_container_input">
+                    <button class="time">Check Route</button>
+                </div>
+                
 
-                <button class="save_event">Save Event</button>
+                <div class="button_container">
+                    <button class="cancel_event">Cancel</button>
+                    <button class="new_leave">Schedule by Leave Time Instead</button>
+                    
+                </div>
 
-                <button class="cancel_event">Cancel</button>
-
-                <br>
-
-                <button class="new_leave">Schedule by Leave Time Instead</button>
+                
               
                 <br>
             </div>
@@ -141,7 +144,7 @@
         <script type="text/template" id="new-leave-event-template">
 
             <div class="input_container">
-                
+                <h2>New Event By Leave Time</h2>
                 <input class="event_name" placeholder="Event">
                 <div class="date_input_wrapper">
                     <input class="leave_date" placeholder="Departure Date">
@@ -164,17 +167,16 @@
                     <input class="destination-city" placeholder="End City">
                     <input class="destination-state" placeholder="End State">
                 </div>
-                <button class="time">Check Route</button>
+                <div class="button_container_input">
+                    <button class="time">Check Route</button>
+                </div>
+                
 
-                <button class="submit_dates">Submit Dates</button>
-
-                <button class="save_event">Save Event</button>
-
-                <button  class="cancel_event">Cancel</button>
-
-                <br>
-
-                <button class="new_normal_event">Schedule by Start Time Instead</button>
+                <div class="button_container">
+                    <button class="cancel_event">Cancel</button>
+                    <button class="new_normal_event">Schedule by Start Time Instead</button>
+                    
+                </div>
               
                 <br>
             </div>

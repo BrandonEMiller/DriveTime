@@ -56,7 +56,7 @@ CreateEventView = Backbone.View.extend({
 		        var route = response.routes[0];
 		        route_time= Math.round(route.legs[0].duration.value/60)
 		        directionsDisplay.setDirections(response);
-		  
+		  		$('.button_container_input').append('<button class="submit_dates">Submit Dates</button>')
 
 		        $('.container').append(route_time + ' minutes <br>')
 		       }
@@ -69,6 +69,7 @@ CreateEventView = Backbone.View.extend({
 	},
 
 	save: function(){ 
+		$('.button_container_input').append('<button class="save_event">Save Event</button>')
 		var driveEvent = new Event();
 		var $startInput = $('.start_date').pickadate()
 		var startDatePicker = $startInput.pickadate('picker')
