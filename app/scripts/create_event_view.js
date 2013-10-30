@@ -194,7 +194,6 @@ CreateEventView = Backbone.View.extend({
 
 			driveEvent.save(null, {
 	  			success: function(eventName) {
-	  			  console.log("Save success")
 	  			  router.navigate('home', {trigger: true});
 	  		},
 	  			error: function(eventName, error) {

@@ -12,7 +12,6 @@ EditEventView = Backbone.View.extend({
 	initialize: function() {
 		$('.container').append(this.el)
 		this.render()
-		console.log(this.model.get('eventName'))
 
 		var $startInput = $('.start_date').pickadate()
 		var startDatePicker = $startInput.pickadate('picker')
@@ -208,7 +207,6 @@ EditEventView = Backbone.View.extend({
 		var driveEvent = this.model
 		driveEvent.destroy({
   			success: function(driveEvent) {
-  				console.log("Event was deleted")
   				router.navigate('home', {trigger: true});
 			    
 			  },

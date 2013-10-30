@@ -54,7 +54,6 @@ MainView = Backbone.View.extend({
 					    		id: object.id
 					    	})
 					    });
-					    console.log(data)
 					    callback(data)
 					},
 					error: function(collection, error) {
@@ -65,7 +64,6 @@ MainView = Backbone.View.extend({
 			},
 
 			 eventClick: function(event) {
-		       //alert('an event has been clicked! It has an id of ' + event.id);
 		       router.navigate('events/' + event.id, {trigger: true});
 
 		    },
