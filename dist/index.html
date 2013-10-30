@@ -10,10 +10,10 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-        <link rel="stylesheet" href="styles/3b7f03c3.main.css">
+        <link rel="stylesheet" href="styles/c90ef793.main.css">
         <link href="http://fonts.googleapis.com/css?family=Quicksand:300|Raleway:100" rel="stylesheet" type="text/css">
-        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBEU3I5Ps1tKBkAYXaNQbMzU1djRVqvSuE&sensor=true">
-        </script>
+        <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+       
         <script src="http://www.parsecdn.com/js/parse-1.2.12.min.js"></script>
     </head>
     <body>
@@ -121,7 +121,11 @@
                     <button class="new_leave">Schedule by Leave Time Instead</button>
                     
                 </div>
+                <div class="border_container">
+                    <div class="trip_time"></div>  
 
+                    <div class="time_to_leave"></div>
+                </div>
                 
               
                 <br>
@@ -169,6 +173,12 @@
                     <button class="new_normal_event">Schedule by Start Time Instead</button>
                     
                 </div>
+
+                <div class="border_container">
+                    <div class="trip_time"></div>  
+
+                    <div class="time_to_leave"></div>
+                </div>
               
                 <br>
             </div>
@@ -203,17 +213,26 @@
                     <input class="destination-city" value =<%= '"' +calendarEvent.get('endingCity') + '"'%>>
                     <input class="destination-state" value =<%= '"' +calendarEvent.get('endingState') + '"'%>>
                 </div>
-                <button class="time">Check Route</button>
 
-                <button class="submit_dates">Submit Dates</button>
 
-                <button class="save_event">Save Event</button>
+                <div class="button_container_input">
+                    <button class="time">Check Route</button>
+                </div>
+                
 
-                <button class="cancel_event">Cancel</button> 
+                <div class="button_container_edit">
+                    <button class="cancel_event">Cancel</button>
+                    <button class="delete_event">Delete Event</button>
+                    
+                </div>
 
-                <button class="delete_event">Delete Event</button>
-              
-                <br>
+                <div class="border_container">
+                    <div class="trip_time"></div>  
+
+                    <div class="time_to_leave"></div>
+                </div>
+
+
             </div>
 
             <div class="map_container">
@@ -234,6 +253,6 @@
             ga('create','UA-XXXXX-X');ga('send','pageview');
         </script>
 
-        <script src="scripts/d059b75e.main.js"></script>
+        <script src="scripts/a4ac0cea.main.js"></script>
 </body>
 </html>
