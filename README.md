@@ -14,3 +14,9 @@ Plugins used include pickadate.js and FullCalendar.
 pickadate.js is a great tool for users to input dates and times.  Find more at http://amsul.ca/pickadate.js/
 
 FullCalendar provides a great calendar vizualization for application. Find more at http://arshaw.com/fullcalendar/
+
+Future goals for this project include:
+  - Creating user log in and user based save data for events.
+  - Integration with Google Calendar
+  - Drive Time estimates to be affected by typical travel patterns for the times requested.
+  - Respoonsive Design
