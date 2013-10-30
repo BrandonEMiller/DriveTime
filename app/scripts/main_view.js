@@ -45,14 +45,30 @@ MainView = Backbone.View.extend({
 					    		allDay: false,
 					    		id: object.id
 					    	});
-					    	data.push({
-					    		title: 'Leave For ' + object.get('eventName'),
-					    		start: object.get('eventLeaveYear') + '-' + (object.get('eventLeaveMonth')+1)+ '-' + object.get('eventLeaveDate') + ' ' + object.get('eventLeaveHour')+':' + object.get('eventLeaveMinute'),
-					    		end: object.get('eventStartYear') + '-' + (object.get('eventStartMonth')+1)+ '-' + object.get('eventStartDate') + ' ' + object.get('eventStartHour')+':' + object.get('eventStartMin'),
-					    		allDay: false,
-					    		color: 'green',
-					    		id: object.id
-					    	})
+					    	var pass = false
+					    	if(object.get('eventLeaveHour') !== object.get('eventStartHour') ){ 
+					    			pass=true
+							    	data.push({
+							    		title: 'Leave For ' + object.get('eventName'),
+							    		start: object.get('eventLeaveYear') + '-' + (object.get('eventLeaveMonth')+1)+ '-' + object.get('eventLeaveDate') + ' ' + object.get('eventLeaveHour')+':' + object.get('eventLeaveMinute'),
+							    		end: object.get('eventStartYear') + '-' + (object.get('eventStartMonth')+1)+ '-' + object.get('eventStartDate') + ' ' + object.get('eventStartHour')+':' + object.get('eventStartMin'),
+							    		allDay: false,
+							    		color: 'green',
+							    		id: object.id
+							    	})
+					    		
+					    	}
+					    	if(object.get('eventLeaveMinute') !== object.get('eventStartMin')  && pass == false) {
+					    		data.push({
+							    		title: 'Leave For ' + object.get('eventName'),
+							    		start: object.get('eventLeaveYear') + '-' + (object.get('eventLeaveMonth')+1)+ '-' + object.get('eventLeaveDate') + ' ' + object.get('eventLeaveHour')+':' + object.get('eventLeaveMinute'),
+							    		end: object.get('eventStartYear') + '-' + (object.get('eventStartMonth')+1)+ '-' + object.get('eventStartDate') + ' ' + object.get('eventStartHour')+':' + object.get('eventStartMin'),
+							    		allDay: false,
+							    		color: 'green',
+							    		id: object.id
+							    	})
+
+					    	}
 					    });
 					    callback(data)
 					},

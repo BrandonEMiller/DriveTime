@@ -54,8 +54,8 @@ EditEventView = Backbone.View.extend({
 		        directionsDisplay.setDirections(response);
 		        
 		        if ($('.submit_dates').length > 0) {
- 					 console.log('it already exists')
-				} else {
+				} 
+				else {
 					$('.button_container_input').append('<button class="submit_dates">Submit Dates</button>')
 
 				}
@@ -72,8 +72,8 @@ EditEventView = Backbone.View.extend({
 
 	save: function(){ 
 		if ($('.save_event').length > 0) {
- 			console.log('it already exists')
-		} else {
+		} 
+		else {
 			$('.button_container_input').append('<button class="save_event">Save Event</button>')
 					
 		}
@@ -90,9 +90,7 @@ EditEventView = Backbone.View.extend({
 		
 		var diff = startTimePicker.get('select').pick - route_time
 		var leaveTimeHour = Math.floor(diff/60)
-		console.log(leaveTimeHour)
 		var leaveTimeMinute =diff- leaveTimeHour*60
-		console.log(leaveTimeMinute)
 		var timePeriod = "AM"
 		var startTimePeriod = "AM"
 		var leaveTimeHourAdjusted = leaveTimeHour
@@ -225,7 +223,6 @@ EditEventView = Backbone.View.extend({
 
 			driveEvent.save(null, {
 	  			success: function(eventName) {
-	  			  console.log("Save success")
 	  			  router.navigate('home', {trigger: true});
 	  		},
 	  			error: function(eventName, error) {

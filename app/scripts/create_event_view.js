@@ -56,9 +56,9 @@ CreateEventView = Backbone.View.extend({
 		        var route = response.routes[0];
 		        route_time= Math.round(route.legs[0].duration.value/60)
 		        directionsDisplay.setDirections(response);
-		  		if ($('.submit_dates').length > 0) {
- 					 console.log('it already exists')
-				} else {
+		  		if ($('.submit_dates').length > 0) { 
+				}
+				else {
 					$('.button_container_input').append('<button class="submit_dates">Submit Dates</button>')
 
 				}
@@ -77,8 +77,8 @@ CreateEventView = Backbone.View.extend({
 	save: function(){ 
 
 		if ($('.save_event').length > 0) {
- 			console.log('it already exists')
-		} else {
+		} 
+		else {
 			$('.button_container_input').append('<button class="save_event">Save Event</button>')
 					
 		}
