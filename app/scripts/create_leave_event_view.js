@@ -52,9 +52,15 @@ CreateLeaveEventView = Backbone.View.extend({
 		        var route = response.routes[0];
 		        route_time= Math.round(route.legs[0].duration.value/60)
 		        directionsDisplay.setDirections(response);
-		        $('.button_container_input').append('<button class="submit_dates">Submit Dates</button>')
+		        if ($('.submit_dates').length > 0) {
+ 					 console.log('it already exists')
+				} else {
+					$('.button_container_input').append('<button class="submit_dates">Submit Dates</button>')
 
-		        $('.container').append(route_time + ' minutes <br>')
+				}
+
+		        $('.trip_time').html('')
+		        $('.trip_time').append('The drive will take ' + route_time + ' minutes.')
 		       }
 
 		    else {
@@ -64,8 +70,13 @@ CreateLeaveEventView = Backbone.View.extend({
 	},
 
 	save: function(){ 
-		$('.button_container_input').append('<button class="save_event">Save Event</button>')
-		var driveEvent = new Event();
+		if ($('.save_event').length > 0) {
+ 			console.log('it already exists')
+		} else {
+			$('.button_container_input').append('<button class="save_event">Save Event</button>')
+					
+		}
+		
 		var $leaveInput = $('.leave_date').pickadate()
 		var leaveDatePicker = $leaveInput.pickadate('picker')
 		var $leaveTimeInput = $('.leave_time').pickatime({interval: 15})
@@ -190,6 +201,7 @@ CreateLeaveEventView = Backbone.View.extend({
 
 		var leaveForMeeting = "" + leaveTimeHourAdjusted + ":" + leaveTimePicker.get('select').mins
 		$(".save_event").click(function(){
+			var driveEvent = new Event();
 			driveEvent.set("eventName", $('.event_name').val());
 			driveEvent.set("eventStartYear", startEventYear);
 			driveEvent.set("eventStartMonth", startEventMonth);
@@ -231,7 +243,8 @@ CreateLeaveEventView = Backbone.View.extend({
 	  		}
 		});
 		})	 
-		$('.container').append('You will arrive at ' + startTimeString)
+		$('.time_to_leave').html('')
+		$('.time_to_leave').append('You need to leave at ' + leaveForMeeting + ' ' + timePeriod)
 	},
 
 	cancel: function() {

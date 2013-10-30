@@ -52,8 +52,16 @@ EditEventView = Backbone.View.extend({
 		        var route = response.routes[0];
 		        route_time= Math.round(route.legs[0].duration.value/60)
 		        directionsDisplay.setDirections(response);
+		        
+		        if ($('.submit_dates').length > 0) {
+ 					 console.log('it already exists')
+				} else {
+					$('.button_container_input').append('<button class="submit_dates">Submit Dates</button>')
 
-		        $('.container').append(route_time + ' minutes <br>')
+				}
+
+		        $('.trip_time').html('')
+		        $('.trip_time').append('The drive will take ' + route_time + ' minutes.')
 		       }
 
 		    else {
@@ -63,6 +71,13 @@ EditEventView = Backbone.View.extend({
 	},
 
 	save: function(){ 
+		if ($('.save_event').length > 0) {
+ 			console.log('it already exists')
+		} else {
+			$('.button_container_input').append('<button class="save_event">Save Event</button>')
+					
+		}
+
 		var driveEvent = this.model;
 		var $startInput = $('.start_date').pickadate()
 		var startDatePicker = $startInput.pickadate('picker')
@@ -196,7 +211,8 @@ EditEventView = Backbone.View.extend({
 	  		}
 		});
 		})	 
-		$('.container').append('You need to leave at ' + leaveForMeeting + ' ' + timePeriod)
+		$('.time_to_leave').html('')
+		$('.time_to_leave').append('You need to leave at ' + leaveForMeeting + ' ' + timePeriod)
 	},
 
 	cancel: function() {

@@ -51,6 +51,8 @@
                 expect(router.routes['events/:_id']).to.equal('showEvent')
              })
 
+             
+
 
         });
     });

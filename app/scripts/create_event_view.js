@@ -56,9 +56,15 @@ CreateEventView = Backbone.View.extend({
 		        var route = response.routes[0];
 		        route_time= Math.round(route.legs[0].duration.value/60)
 		        directionsDisplay.setDirections(response);
-		  		$('.button_container_input').append('<button class="submit_dates">Submit Dates</button>')
+		  		if ($('.submit_dates').length > 0) {
+ 					 console.log('it already exists')
+				} else {
+					$('.button_container_input').append('<button class="submit_dates">Submit Dates</button>')
 
-		        $('.container').append(route_time + ' minutes <br>')
+				}
+				
+				$('.trip_time').html('')
+		        $('.trip_time').append('The drive will take ' + route_time + ' minutes.')
 		       }
 
 		    else {
@@ -69,8 +75,15 @@ CreateEventView = Backbone.View.extend({
 	},
 
 	save: function(){ 
-		$('.button_container_input').append('<button class="save_event">Save Event</button>')
-		var driveEvent = new Event();
+
+		if ($('.save_event').length > 0) {
+ 			console.log('it already exists')
+		} else {
+			$('.button_container_input').append('<button class="save_event">Save Event</button>')
+					
+		}
+		
+		
 		var $startInput = $('.start_date').pickadate()
 		var startDatePicker = $startInput.pickadate('picker')
 		var $startTimeInput = $('.start_time').pickatime()
@@ -161,6 +174,7 @@ CreateEventView = Backbone.View.extend({
 
 		var leaveForMeeting = "" + leaveTimeHourAdjusted + ":" + leaveTimeMinute
 		$(".save_event").click(function(){
+			var driveEvent = new Event();
 			driveEvent.set("eventName", $('.event_name').val());
 			driveEvent.set("eventStartYear", startDatePicker.get('select').year);
 			driveEvent.set("eventStartMonth", startDatePicker.get('select').month);
@@ -201,8 +215,9 @@ CreateEventView = Backbone.View.extend({
 	    		// error is a Parse.Error with an error code and description.
 	  		}
 		});
-		})	 
-		$('.container').append('You need to leave at ' + leaveForMeeting + ' ' + timePeriod)
+		})
+		$('.time_to_leave').html('')
+		$('.time_to_leave').append('You need to leave at ' + leaveForMeeting + ' ' + timePeriod)
 	},
 
 	cancel: function() {

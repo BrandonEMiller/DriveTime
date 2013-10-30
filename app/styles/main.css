@@ -148,7 +148,7 @@ a {
     vertical-align: top;
     width: 500px;
     display: inline-block;
-    height: 500px
+    height: 550px
     }
 
 .input_container h2 {
@@ -166,6 +166,32 @@ a {
     width: 300px;
     margin: 0 auto;
 }
+.button_container_edit {
+    width: 195px;
+    margin: 0 auto;
+}
+
+.border_container {
+    width: 450px;
+    height: 90px;
+    margin: 5px auto 0;
+    
+}
+
+.trip_time {
+    width: 400px;
+    margin: 10px auto;
+    text-align: center;
+
+}
+
+.time_to_leave {
+    width: 400px;
+    margin: 10px auto;
+    text-align: center;
+}
+
+
 .event_name {
     width: 90%;
     margin: 5px auto 30px;
@@ -206,7 +232,7 @@ a {
     display: inline-block;
     width: 500px;
     overflow:scroll;
-    height: 500px;
+    height: 550px;
 }
 
 #map {
