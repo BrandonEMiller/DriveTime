@@ -104,11 +104,18 @@ EditEventView = Backbone.View.extend({
 				startTimeHourAdjusted=12
 			}
 		}
+
 		if (startTimePicker.get('select').mins == 0){
 			var startTimeString =""+ startTimeHourAdjusted + ":" + startTimePicker.get('select').mins + "0 " + startTimePeriod + "";
-		} else {
+		} 
+		else if (startTimePicker.get('select').mins < 10){
+			var startTimeString =""+ startTimeHourAdjusted + ":" +  "0" + startTimePicker.get('select').mins + " " + startTimePeriod + "";
+		}
+
+		else if(startTimePicker.get('select').mins >=10)  {
 			var startTimeString =""+ startTimeHourAdjusted + ":" + startTimePicker.get('select').mins + " " + startTimePeriod + "";
 		}
+		
 
 		var endTimePeriod = "AM"
 		var endTimeHourAdjusted = endTimePicker.get('select').hour
@@ -119,9 +126,15 @@ EditEventView = Backbone.View.extend({
 				endTimeHourAdjusted=12
 			}
 		}
+
 		if (endTimePicker.get('select').mins == 0){
 			var endTimeString =""+ endTimeHourAdjusted + ":" + endTimePicker.get('select').mins + "0 " + endTimePeriod + "";
-		} else {
+		} 
+		else if (endTimePicker.get('select').mins < 10){
+			var endTimeString =""+ endTimeHourAdjusted + ":" +  "0" + endTimePicker.get('select').mins + " " + endTimePeriod + "";
+		}
+
+		else if(endTimePicker.get('select').mins >=10) {
 			var endTimeString =""+ endTimeHourAdjusted + ":" + endTimePicker.get('select').mins + " " + endTimePeriod + "";
 		}
 
@@ -167,7 +180,17 @@ EditEventView = Backbone.View.extend({
 			}
 		}
 
-		var leaveForMeeting = "" + leaveTimeHourAdjusted + ":" + leaveTimeMinute
+		if (leaveTimeMinute == 0){
+			var leaveForMeeting = "" + leaveTimeHourAdjusted + ":" + leaveTimeMinute + "0"
+		} 
+		else if (leaveTimeMinute < 10){
+			var leaveForMeeting = "" + leaveTimeHourAdjusted + ":" + "0" +leaveTimeMinute
+		}
+
+		else if(leaveTimeMinute >=10) {
+			var leaveForMeeting = "" + leaveTimeHourAdjusted + ":" + leaveTimeMinute
+		}
+
 		$(".save_event").click(function(){
 			driveEvent.set("eventName", $('.event_name').val());
 			driveEvent.set("eventStartYear", startDatePicker.get('select').year);

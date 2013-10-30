@@ -62,7 +62,7 @@ CreateEventView = Backbone.View.extend({
 					$('.button_container_input').append('<button class="submit_dates">Submit Dates</button>')
 
 				}
-				
+
 				$('.trip_time').html('')
 		        $('.trip_time').append('The drive will take ' + route_time + ' minutes.')
 		       }
@@ -95,9 +95,7 @@ CreateEventView = Backbone.View.extend({
 		
 		var diff = startTimePicker.get('select').pick - route_time
 		var leaveTimeHour = Math.floor(diff/60)
-		console.log(leaveTimeHour)
 		var leaveTimeMinute =diff- leaveTimeHour*60
-		console.log(leaveTimeMinute)
 		var timePeriod = "AM"
 		var startTimePeriod = "AM"
 		var leaveTimeHourAdjusted = leaveTimeHour
@@ -111,9 +109,15 @@ CreateEventView = Backbone.View.extend({
 		}
 		if (startTimePicker.get('select').mins == 0){
 			var startTimeString =""+ startTimeHourAdjusted + ":" + startTimePicker.get('select').mins + "0 " + startTimePeriod + "";
-		} else {
+		} 
+		else if (startTimePicker.get('select').mins < 10){
+			var startTimeString =""+ startTimeHourAdjusted + ":" +  "0" + startTimePicker.get('select').mins + " " + startTimePeriod + "";
+		}
+
+		else if(startTimePicker.get('select').mins >=10)  {
 			var startTimeString =""+ startTimeHourAdjusted + ":" + startTimePicker.get('select').mins + " " + startTimePeriod + "";
 		}
+
 
 		var endTimePeriod = "AM"
 		var endTimeHourAdjusted = endTimePicker.get('select').hour
@@ -126,7 +130,12 @@ CreateEventView = Backbone.View.extend({
 		}
 		if (endTimePicker.get('select').mins == 0){
 			var endTimeString =""+ endTimeHourAdjusted + ":" + endTimePicker.get('select').mins + "0 " + endTimePeriod + "";
-		} else {
+		} 
+		else if (endTimePicker.get('select').mins < 10){
+			var endTimeString =""+ endTimeHourAdjusted + ":" +  "0" + endTimePicker.get('select').mins + " " + endTimePeriod + "";
+		}
+
+		else if(endTimePicker.get('select').mins >=10) {
 			var endTimeString =""+ endTimeHourAdjusted + ":" + endTimePicker.get('select').mins + " " + endTimePeriod + "";
 		}
 
@@ -171,6 +180,20 @@ CreateEventView = Backbone.View.extend({
 				leaveTimeHourAdjusted=12
 			}
 		}
+		if (leaveTimeMinute == 0){
+			var leaveForMeeting = "" + leaveTimeHourAdjusted + ":" + leaveTimeMinute + "0"
+		} 
+		else if (leaveTimeMinute < 10){
+			var leaveForMeeting = "" + leaveTimeHourAdjusted + ":" + "0" +leaveTimeMinute
+		}
+
+		else if(leaveTimeMinute >=10) {
+			var leaveForMeeting = "" + leaveTimeHourAdjusted + ":" + leaveTimeMinute
+		}
+		
+		$('.time_to_leave').html('')
+		$('.time_to_leave').append('You need to leave at ' + leaveForMeeting + ' ' + timePeriod)
+
 
 		var leaveForMeeting = "" + leaveTimeHourAdjusted + ":" + leaveTimeMinute
 		$(".save_event").click(function(){
@@ -216,8 +239,7 @@ CreateEventView = Backbone.View.extend({
 	  		}
 		});
 		})
-		$('.time_to_leave').html('')
-		$('.time_to_leave').append('You need to leave at ' + leaveForMeeting + ' ' + timePeriod)
+		
 	},
 
 	cancel: function() {

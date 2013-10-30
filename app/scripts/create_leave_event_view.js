@@ -134,11 +134,18 @@ CreateLeaveEventView = Backbone.View.extend({
 			}
 		}
 		
+			
 		if (startEventMins == 0){
 			var startTimeString =""+ startTimeHourAdjusted + ":" + startEventMins + "0 " + startTimePeriod + "";
-		} else {
+		}
+		else if (startEventMins < 10){
+			var startTimeString =""+ startTimeHourAdjusted + ":" +  "0" + startEventMins+ " " + startTimePeriod + "";
+		}
+
+		else if(startEventMins >=10)  {
 			var startTimeString =""+ startTimeHourAdjusted + ":" + startEventMins + " " + startTimePeriod + "";
 		}
+
 
 		var endTimePeriod = "AM"
 		var endTimeHourAdjusted = endEventHour
@@ -185,9 +192,15 @@ CreateLeaveEventView = Backbone.View.extend({
 			}
 		}
 
+
 		if (endEventMins == 0){
 			var endTimeString =""+ endTimeHourAdjusted + ":" + endEventMins + "0 " + endTimePeriod + "";
-		} else {
+		}
+		else if (endEventMins < 10){
+			var endTimeString =""+ endTimeHourAdjusted + ":" +  "0" + endEventMins+ " " + endTimePeriod + "";
+		}
+
+		else if(endEventMins >=10)  {
 			var endTimeString =""+ endTimeHourAdjusted + ":" + endEventMins + " " + endTimePeriod + "";
 		}
 
@@ -198,8 +211,21 @@ CreateLeaveEventView = Backbone.View.extend({
 				leaveTimeHourAdjusted=12
 			}
 		}
+		if (leaveTimePicker.get('select').mins == 0){
+			var leaveForMeeting = "" + leaveTimeHourAdjusted + ":" + leaveTimePicker.get('select').mins + "0"
+		} 
+		else if (leaveTimePicker.get('select').mins < 10){
+			var leaveForMeeting = "" + leaveTimeHourAdjusted + ":" + "0" +leaveTimePicker.get('select').mins
+		}
 
-		var leaveForMeeting = "" + leaveTimeHourAdjusted + ":" + leaveTimePicker.get('select').mins
+		else if(leaveTimePicker.get('select').mins >=10) {
+			var leaveForMeeting = "" + leaveTimeHourAdjusted + ":" + leaveTimePicker.get('select').mins
+		}
+		
+		
+		$('.time_to_leave').html('')
+		$('.time_to_leave').append('You need to leave at ' + leaveForMeeting + ' ' + timePeriod)
+
 		$(".save_event").click(function(){
 			var driveEvent = new Event();
 			driveEvent.set("eventName", $('.event_name').val());
@@ -243,8 +269,7 @@ CreateLeaveEventView = Backbone.View.extend({
 	  		}
 		});
 		})	 
-		$('.time_to_leave').html('')
-		$('.time_to_leave').append('You need to leave at ' + leaveForMeeting + ' ' + timePeriod)
+		
 	},
 
 	cancel: function() {

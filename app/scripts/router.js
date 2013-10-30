@@ -36,7 +36,6 @@ DriveTimeRouter = Backbone.Router.extend({
 		var query = new Parse.Query(Event);
 			query.get(id, {
 			  success: function(object) {
-			    console.log ('Retrieved')
 			  	$('.container').html('') 
 				new EditEventView({model: object})
 			  },
