@@ -19,4 +19,4 @@ Future goals for this project include:
   - Creating user log in and user based save data for events.
   - Integration with Google Calendar
   - Drive Time estimates to be affected by typical travel patterns for the times requested.
-  - Respoonsive Design
+  - Responsive Design
