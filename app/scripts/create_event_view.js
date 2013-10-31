@@ -180,10 +180,7 @@ CreateEventView = Backbone.View.extend({
 				leaveTimeHourAdjusted=12
 			}
 		}
-		if (leaveTimeMinute == 0){
-			var leaveForMeeting = "" + leaveTimeHourAdjusted + ":" + leaveTimeMinute + "0"
-		} 
-		else if (leaveTimeMinute < 10){
+		if (leaveTimeMinute < 10){
 			var leaveForMeeting = "" + leaveTimeHourAdjusted + ":" + "0" +leaveTimeMinute
 		}
 

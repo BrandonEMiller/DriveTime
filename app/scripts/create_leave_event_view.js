@@ -228,7 +228,7 @@ CreateLeaveEventView = Backbone.View.extend({
 		
 		
 		$('.time_to_leave').html('')
-		$('.time_to_leave').append('You need to leave at ' + leaveForMeeting + ' ' + timePeriod)
+		$('.time_to_leave').append('Your event wil start at ' + startTimeString)
 
 		$(".save_event").click(function(){
 			var driveEvent = new Event();

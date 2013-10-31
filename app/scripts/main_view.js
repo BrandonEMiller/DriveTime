@@ -103,7 +103,7 @@ MainView = Backbone.View.extend({
 			       if (object.get('eventStartDate') == today.getDate()) {
 			       		count = count + 1;
 			       		$('.daily_container').append('<h3>' + object.get('eventName')+ 
-			       									':</h3><h5>Need to leave by ' + object.get('eventLeaveHourAdjusted') + ':' + object.get('eventLeaveMinute') + ' ' + object.get('timePeriod') + 
+			       									':</h3><h5>Need to leave by ' + object.get('eventLeaveTime') +  ' ' + object.get('timePeriod') + 
 			       									'</h5><h5>Event is located at ' + object.get('endingAddress') + ' in ' + object.get('endingCity') + ', ' + object.get('endingState') + 
 			       									'</h5><div class=underline_border></div>' )
 			       }

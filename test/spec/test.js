@@ -51,7 +51,36 @@
                 expect(router.routes['events/:_id']).to.equal('showEvent')
              })
 
-             
+             // it('should be able to access google maps api', function() {
+             //    var route=0
+
+             //    var directionsService = new google.maps.DirectionsService();
+             //    var directionsDisplay = new google.maps.DirectionsRenderer();
+        
+
+        
+
+             //    var request = {
+             //        origin: "Greenville, SC",
+             //        destination: "Columbia, SC",
+             //        travelMode: google.maps.DirectionsTravelMode.DRIVING
+             //    };
+             //    directionsService.route(request, function(response, status) {
+             //        if (status == google.maps.DirectionsStatus.OK) {
+             //            route = response.routes[0];
+             //            console.log (route) 
+                        
+                       
+             //        }
+
+             //        else {
+             //            console.log("Error")
+             //        }
+             //    })
+
+             //    expect(route).to.be.above(0)
+             //    console.log (route) 
+             // })
 
 
         });
