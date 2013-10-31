@@ -124,13 +124,15 @@ CreateLeaveEventView = Backbone.View.extend({
 			startTimeHourAdjusted-=24
 			startEventHour-=24
 			
-			if(startTimeHourAdjusted>=12) {
-				startTimePeriod = "PM"
-				startTimeHourAdjusted-=12
+			
+		}
+
+		if(startTimeHourAdjusted>=12) {
+			startTimePeriod = "PM"
+			startTimeHourAdjusted-=12
 				
-				if(startTimeHourAdjusted == 0) {
-					startTimeHourAdjusted=12
-				}
+			if(startTimeHourAdjusted == 0) {
+				startTimeHourAdjusted=12
 			}
 		}
 		
@@ -183,12 +185,14 @@ CreateLeaveEventView = Backbone.View.extend({
 			endTimeHourAdjusted-=24
 			endEventHour-=24
 
-			if(endTimeHourAdjusted>=12) {
-				endTimePeriod = "PM"
-				endTimeHourAdjusted-=12
-				if(endTimeHourAdjusted == 0) {
-					endTimeHourAdjusted=12
-				}
+			
+		}
+
+		if(endTimeHourAdjusted>=12) {
+			endTimePeriod = "PM"
+			endTimeHourAdjusted-=12
+			if(endTimeHourAdjusted == 0) {
+				endTimeHourAdjusted=12
 			}
 		}
 
