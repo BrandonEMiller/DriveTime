@@ -7,6 +7,7 @@ body {
     margin: 0;
     padding: 0;
     position: relative;
+    font-family: Lato;
 }
 
 header {
@@ -98,7 +99,7 @@ a {
 
 .container {
     margin: 70px auto 50px;
-    width: 1020px;
+    width: 1035px;
     font-size: 18px;
     font-weight: 200;
     line-height: 30px;
@@ -110,28 +111,59 @@ a {
 }
 
 .calendar_container {
-    width: 812px;
+    width: 790px;
     display: inline-block;
 }
 
 .daily_container {
-    width: 200px;
+    width: 235px;
     display: inline-block;
     vertical-align: top;
     text-align: center;
+    margin-left: 5px;
+}
+.daily_container_today {
+    width: 235px;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    margin-left: 5px;
 }
 
-.daily_container h2 {
+.daily_container_today h2 {
     margin-top: 50px;
 }
 
-.daily_container h3 {
+.daily_container_today h3 {
     margin: 0;
     margin-top: 40px;
     padding: 0;
 
 }
-.daily_container h5 {
+.daily_container_today h5 {
+    margin: 0;
+    padding: 0;
+
+}
+.daily_container_tomorrow {
+    width: 235px;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    margin-left: 5px;
+}
+
+.daily_container_tomorrow h2 {
+    margin-top: 50px;
+}
+
+.daily_container_tomorrow h3 {
+    margin: 0;
+    margin-top: 40px;
+    padding: 0;
+
+}
+.daily_container_tomorrow h5 {
     margin: 0;
     padding: 0;
 
@@ -148,13 +180,13 @@ a {
     vertical-align: top;
     width: 500px;
     display: inline-block;
-    height: 550px
+    height: 590px
     }
 
 .input_container h2 {
     margin: 0 auto;
     text-align: center;
-    font-family: Raleway;
+    font-family: Lato;
 }
 
 .button_container_input{
@@ -215,6 +247,26 @@ a {
     margin-right: 15px;
 }
 
+.location_origin {
+    width: 240px;
+    display: inline-block;
+    border-right: 1px solid rgb(173,173,173);
+    padding-right: 2px;
+}
+
+.location_title {
+    text-align: center;
+    margin: 0;
+}
+
+.location_origin input {
+    height: 20px;
+    font-size: 14px;
+    width: 200px;
+    margin: 15px auto;
+    display: block;
+}
+
 .location {
     width: 240px;
     display: inline-block;
@@ -232,7 +284,7 @@ a {
     display: inline-block;
     width: 500px;
     overflow:scroll;
-    height: 550px;
+    height: 590px;
 }
 
 #map {
