@@ -98,6 +98,7 @@ MainView = Backbone.View.extend({
 		queryMonth.find({
 			  success: function(results) {
 			    var count = 0;
+			    var count2 =0;
 			  	for (var i = 0; i < results.length; i++) { 
 			       var object = results[i];
 			       if (object.get('eventStartDate') == today.getDate()) {
@@ -111,7 +112,7 @@ MainView = Backbone.View.extend({
 			     
 			     
 			     if (object.get('eventStartDate') == today.getDate()+1) {
-			       		count = count + 1;
+			       		count2 = count2 + 1;
 			       		$('.daily_container_tomorrow').append('<h3>' + object.get('eventName')+ 
 			       									':</h3><h5>Need to leave by ' + object.get('eventLeaveTime') +  ' ' + object.get('timePeriod') + 
 			       									'</h5><h5>Event is located at ' + object.get('endingAddress') + ' in ' + object.get('endingCity') + ', ' + object.get('endingState') + 
@@ -121,8 +122,13 @@ MainView = Backbone.View.extend({
 			     
 			     }
 			     if (count == 0) {
-			       		$('.daily_container').append('<h3> No Events Scheduled Today </h3>')
+			       		$('.daily_container_today').append('<h3> No Events Scheduled Today </h3>')
 			       }
+			     if (count2 == 0) {
+			       		$('.daily_container_tomorrow').append('<h3> No Events Scheduled Tomorrow </h3>')
+			       }
+
+
 			  },
 			  error: function(error) {
 			    alert("Error: " + error.code + " " + error.message);
