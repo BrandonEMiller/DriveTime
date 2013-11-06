@@ -122,10 +122,10 @@ MainView = Backbone.View.extend({
 			     
 			     }
 			     if (count == 0) {
-			       		$('.daily_container_today').append('<h3> No Events Scheduled Today </h3>')
+			       		$('.daily_container_today').append('<h3> No Events Scheduled Today </h3><div class=underline_border></div>')
 			       }
 			     if (count2 == 0) {
-			       		$('.daily_container_tomorrow').append('<h3> No Events Scheduled Tomorrow </h3>')
+			       		$('.daily_container_tomorrow').append('<h3> No Events Scheduled Tomorrow </h3><div class=underline_border></div>')
 			       }
 
 
