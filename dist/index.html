@@ -10,7 +10,7 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-        <link rel="stylesheet" href="styles/2ae19819.main.css">
+        <link rel="stylesheet" href="styles/03cb55eb.main.css">
         <link href="http://fonts.googleapis.com/css?family=Lato:300|Raleway:100" rel="stylesheet" type="text/css">
         <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
        
@@ -56,6 +56,7 @@
             </div>
         </footer>
 
+<!-- Template for the Home Page of the application.  This is where the calendar and daily agenda appear -->
         <script type="text/template" id="main-template">
             
             <div class="calendar_container">
@@ -75,6 +76,8 @@
 
         </script>
 
+<!-- Template for the About Page of the application.  A place where links are provided to all plugins and the Google Maps API -->
+
         <script type="text/template" id="about-template"> 
             <p>DriveTime was created by Brandon E. Miller as a Final Project during his time at The Iron Yard Academy.  This project was inspired from his experience meeting with individuals met in prior jobs that always seemed to have trouble with planning travel time into their schedules.  This lack of planning often made them late to various appointments, so DriveTime is an attempt to take a step to solve this issue.</p>
 
@@ -89,6 +92,7 @@
 
         </script>
 
+<!-- Template for the regular scheduling of new events.  This schedules by starting and ending hours of the events. This template contains the input section as well as a place holder section for when the Google Map and Directions appear for navigation. -->
 
         <script type="text/template" id="new-event-template">
 
@@ -108,9 +112,12 @@
              
                 <div class="location_origin">
                     <div class="location_title">Starting Location</div>
-                    <input class="origin-street" placeholder="Starting Street Address">
-                    <input class="origin-city" placeholder="Starting City">
-                    <input class="origin-state" placeholder="Starting State">
+                    <form data-validate="parsley">
+                        <input class="origin-street" placeholder="Starting Street Address" data-required="true">
+                        <input class="origin-city" placeholder="Starting City">
+                        <input class="origin-state" placeholder="Starting State">
+                    </form>
+
                 </div>
                 <div class="location">
                     <div class="location_title">Ending Location</div>
@@ -144,6 +151,8 @@
                 <div id="panel"></div> 
             </div>
         </script>
+
+<!-- Template for leave time scheduling of new events.  This schedules by leave time and duration of the events. This template contains the input section as well as a place holder section for when the Google Map and Directions appear for navigation. -->
 
         <script type="text/template" id="new-leave-event-template">
 
@@ -200,6 +209,8 @@
                 <div id="panel"></div> 
             </div>
         </script>
+
+<!-- This is a template for the Edit View of created events.  It pulls it up in terms of start and end time and automatically throws the map and directions for the provided address into the direction placeholder. -->
 
         <script type="text/template" id="edit-event-template">
             <div class="input_container">
@@ -267,6 +278,6 @@
             ga('create','UA-XXXXX-X');ga('send','pageview');
         </script>
 
-        <script src="scripts/ecc7ae01.main.js"></script>
+        <script src="scripts/273b3d96.main.js"></script>
 </body>
 </html>
