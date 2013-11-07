@@ -18,5 +18,6 @@ FullCalendar provides a great calendar vizualization for application. Find more 
 Future goals for this project include:
   - Creating user log in and user based save data for events.
   - Integration with Google Calendar
+  - Use of Google Time Zone to calculate cross time zone scheduling
   - Drive Time estimates to be affected by typical travel patterns for the times requested.
   - Responsive Design
