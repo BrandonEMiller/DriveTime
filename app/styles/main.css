@@ -194,8 +194,18 @@ a {
     vertical-align: top;
     width: 500px;
     display: inline-block;
-    height: 590px
+    height: 610px
     }
+
+.required {
+    margin: 0;
+    padding: 0;
+}
+
+.parsely-error-list {
+    margin: 0;
+    padding: 0;
+}
 
 .input_container h2 {
     margin: 0 auto;
@@ -298,7 +308,7 @@ a {
     display: inline-block;
     width: 500px;
     overflow:scroll;
-    height: 590px;
+    height: 610px;
 }
 
 #map {

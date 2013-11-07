@@ -35,6 +35,13 @@ CreateEventView = Backbone.View.extend({
 
 
 	checkRoute: function(){
+		// $('.event_name').parsley('validate');
+		$('.origin-street').parsley('validate');
+		$('.origin-city').parsley('validate');
+		$('.origin-state').parsley('validate');
+		$('.destination-street').parsley('validate');
+		$('.destination-city').parsley('validate');
+		$('.destination-state').parsley('validate');
 		var directionsService = new google.maps.DirectionsService();
 		var directionsDisplay = new google.maps.DirectionsRenderer();
 		
