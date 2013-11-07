@@ -9,7 +9,9 @@ This is my final project as part of my time in the Front End Engineering Program
 
 Utilized in this application is the Google Maps API. Information about the Google Maps API can be found at https://developers.google.com/maps/documentation/javascript/tutorial.
 
-Plugins used include pickadate.js and FullCalendar. 
+Plugins used include parsley.js, pickadate.js, and FullCalendar. 
+
+Parsley.js is a form validation plugin used to check over the inputs for event creations.  Find more at http://parsleyjs.org/documentation.html
 
 pickadate.js is a great tool for users to input dates and times.  Find more at http://amsul.ca/pickadate.js/
 
