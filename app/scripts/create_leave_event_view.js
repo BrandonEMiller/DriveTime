@@ -46,6 +46,7 @@ CreateLeaveEventView = Backbone.View.extend({
 	     });
 
 	     directionsDisplay.setMap(map);
+	     $("#panel").html("");
 	     directionsDisplay.setPanel(document.getElementById('panel'));
 
 		var request = {
