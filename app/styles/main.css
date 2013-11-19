@@ -354,3 +354,206 @@ footer h3 {
     color: #000;
     padding: 0.2em 0;
 }
+
+
+@media (max-width: 1180px) {
+
+  .header_container {
+    width: 930px;
+   }
+
+
+  .container {
+    width: 930px;
+  }
+
+  .calendar_container {
+    width: 690px;
+  
+}
+
+    .daily_container {
+        width: 230px;
+   
+    }
+    .footer_container {
+     width: 930px;
+   
+    }
+ 
+}
+
+@media (max-width: 1080px) {
+
+    .header_container {
+     width: 850px;
+   
+    }
+
+  .container {
+    width: 850px;
+  }
+
+  .calendar_container {
+    width: 100%;
+    display: block;
+  
+}
+
+.daily_container {
+    display: none;
+   
+}
+
+.footer_container {
+     width: 850px;
+   
+    }
+ 
+}
+
+
+@media (max-width: 1020px) {
+
+    .header_container {
+     width: 700px;
+   
+    }
+
+  .container {
+    width: 700px;
+  }
+
+ 
+
+
+.footer_container {
+     width: 700px;
+   
+    }
+ 
+}
+
+@media (max-width: 850px) {
+
+    .header_container {
+     width: 640px;
+   
+    }
+
+  .container {
+    width: 640px;
+  }
+
+.footer_container {
+     width: 640px;
+   
+    }
+ 
+}
+
+@media (max-width: 790px) {
+
+    .header_container {
+     width: 550px;
+   
+    }
+
+    .header_title {
+        padding: 0 12px 0 0;
+    }
+
+    .header_text {
+        padding: 0 9px;
+    }
+
+  .container {
+    width: 550px;
+  }
+
+.footer_container {
+     width: 550px;
+   
+    }
+ }
+
+ @media (max-width: 705px) {
+
+    .header_container {
+     width: 450px;
+   
+    }
+
+    .header_title {
+        padding: 0 4px 0 0;
+        font-size: 36px;
+    }
+
+    .header_text {
+        padding: 0 4px;
+        font-size: 18px;
+    }
+
+  .container {
+    width: 450px;
+  }
+
+.footer_container {
+     width: 450px;
+   
+    }
+ 
+} 
+@media (max-width: 615px) {
+
+    .header_container {
+     width: 450px;
+   
+    }
+
+    .header_title {
+        padding: 0 4px 0 0;
+        font-size: 36px;
+    }
+
+    .header_text {
+        padding: 0 4px;
+        font-size: 18px;
+    }
+
+  .container {
+    width: 350px;
+  }
+
+.footer_container {
+     width: 450px;
+   
+    }
+
+/*    @media (max-width: 500px) {
+
+    .header_container {
+     width: 450px;
+   
+    }
+
+    .header_title {
+        padding: 0 4px 0 0;
+        font-size: 36px;
+    }
+
+    .header_text {
+        padding: 0 4px;
+        font-size: 18px;
+    }
+
+  .container {
+    width: 250px;
+  }
+
+.footer_container {
+     width: 450px;
+   
+    }
+ 
+}*/
