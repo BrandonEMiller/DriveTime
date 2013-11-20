@@ -22,4 +22,4 @@ Future goals for this project include:
   - Integration with Google Calendar
   - Use of Google Time Zone to calculate cross time zone scheduling
   - Drive Time estimates to be affected by typical travel patterns for the times requested.
-  - Responsive Design
+  - Responsive Design (Completed on November 20th, 2013)
