@@ -728,9 +728,7 @@ footer h3 {
   }
 
   .input_container{
-        width: 500px;
-        display: block;
-        margin: 0 auto 10px auto;
+        width: 440px;
     }
 
     .date_input_wrapper{
@@ -742,7 +740,7 @@ footer h3 {
     }
 
     .location_origin{
-        width: 240px;
+        width: 215px;
     }
 
     .location_origin input {
@@ -750,7 +748,7 @@ footer h3 {
     }
 
     .location {
-        width: 240px;
+        width: 215px;
     }
 
     .location input {
@@ -766,17 +764,17 @@ footer h3 {
     }
 
     .map_container {
-        width: 500px;
+        width: 440px;
         margin: 0 auto;
     }
 
     #map {
-        width: 495px;
+        width: 425px;
 
     }
 
     #panel {
-        width: 490px;
+        width: 420px;
     }
 
     .border_container {
@@ -828,6 +826,65 @@ footer h3 {
     width: 350px;
   }
 
+  .input_container{
+        width: 340px;
+    }
+
+    .date_input_wrapper{
+        width: 300px;
+    }
+
+    .date_input_wrapper input{
+        width: 125px;
+    }
+
+    .location_origin{
+        width: 165px;
+    }
+
+    .location_origin input {
+        width: 150px;
+    }
+
+    .location {
+        width: 165px;
+    }
+
+    .location input {
+        width: 150px;
+    }
+
+    .button_container_input {
+        width: 350px;
+    }
+
+    .time, .submit_dates, .save_event {
+        margin: 10px;
+    }
+
+    .map_container {
+        width: 340px;
+        margin: 10px;
+    }
+
+    #map {
+
+        width: 325px;
+
+    }
+
+    #panel {
+        width: 320px;
+    }
+
+    .border_container {
+        width: 310px;
+        margin: 0 auto;
+    }
+    .trip_time, .time_to_leave {
+        width: 300px;
+    }
+
 .footer_container {
      width: 450px;
    
@@ -853,6 +910,70 @@ footer h3 {
   .container {
     width: 250px;
   }
+
+  .input_container{
+        width: 240px;
+    }
+
+    .date_input_wrapper{
+        width: 230px;
+    }
+
+    .date_input_wrapper input{
+        width: 105px;
+        margin: 0 auto;
+    }
+
+    .location_origin{
+        width: 115px;
+    }
+
+    .location_origin input {
+        width: 105px;
+    }
+
+    .location {
+        width: 115px;
+    }
+
+    .location input {
+        width: 105px;
+    }
+
+    .button_container_input {
+        width: 240px;
+    }
+
+    .time, .submit_dates, .save_event, .cancel_event, .new_leave {
+        margin: 0 auto;
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .map_container {
+        width: 240px;
+        margin: 10px;
+        margin-top: 250px;
+    }
+
+    #map {
+
+        width: 225px;
+        height: 300px;
+
+    }
+
+    #panel {
+        width: 220px;
+    }
+
+    .border_container {
+        width: 210px;
+        margin: 0 auto;
+    }
+    .trip_time, .time_to_leave {
+        width: 200px;
+    }
 
 .footer_container {
      width: 450px;
