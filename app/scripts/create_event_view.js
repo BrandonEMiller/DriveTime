@@ -17,7 +17,6 @@ CreateEventView = Backbone.View.extend({
 		$('.container').append(this.el)
 		this.render()
 		var route_time
-		
 
 		var $startInput = $('.start_date').pickadate()
 		var startDatePicker = $startInput.pickadate('picker')
@@ -91,6 +90,9 @@ CreateEventView = Backbone.View.extend({
 					
 		}
 		
+		var hourZoneAdjust = ($('.timezone-change').val())*60 || 0
+		var route_time_adjust = route_time - hourZoneAdjust
+		
 		
 		var $startInput = $('.start_date').pickadate()
 		var startDatePicker = $startInput.pickadate('picker')
@@ -101,7 +103,7 @@ CreateEventView = Backbone.View.extend({
 		var $endTimeInput =  $('.end_time').pickatime()
 		var endTimePicker = $endTimeInput.pickatime('picker')
 		
-		var diff = startTimePicker.get('select').pick - route_time
+		var diff = startTimePicker.get('select').pick - route_time_adjust
 		var leaveTimeHour = Math.floor(diff/60)
 		var leaveTimeMinute =diff- leaveTimeHour*60
 		var timePeriod = "AM"

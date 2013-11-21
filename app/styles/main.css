@@ -194,7 +194,7 @@ a {
     vertical-align: top;
     width: 500px;
     display: inline-block;
-    height: 610px
+    height: 685px
     }
 
 .required {
@@ -304,11 +304,25 @@ a {
     display: block;
 }
 
+.timezone_title {
+    text-align: center;
+    margin: 0;
+    font-size: 12px;
+    padding: 0;
+}
+.timezone-change {
+    height: 20px;
+    font-size: 14px;
+    width: 200px;
+    margin: 5px auto;
+    display: block;
+}
+
 .map_container {
     display: inline-block;
     width: 500px;
     overflow:scroll;
-    height: 610px;
+    height: 685px;
 }
 
 #map {

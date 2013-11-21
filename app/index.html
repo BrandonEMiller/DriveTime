@@ -136,6 +136,8 @@
                         <input class="destination-state" placeholder="End State" data-required="true">
                      </form>
                 </div>
+                <div class="timezone_title">Enter the hour change between starting and ending timezones.  If the current time in the ending timezone is greater than the time in the starting time zone use positive numbers.  If it is less then use negative numbers.  If you will not change timezones then leave the field blank</div>
+                <input class="timezone-change" placeholder="Timezone Hour Change">
 
                 <div class="button_container_input">
                     <button class="time" onclick="javascript:$('#form-required').parsley('validate');">Check Route</button>
