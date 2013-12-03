@@ -93,7 +93,7 @@ MainView = Backbone.View.extend({
 	daily: function () {
 		var queryMonth = new Parse.Query(Event);
 		var today = new Date()
-		queryMonth.equalTo("eventStartMonth", today.getMonth());
+		queryMonth.equalTo("eventStartMonth", 11);
 		queryMonth.ascending("eventLeaveHour")
 		queryMonth.find({
 			  success: function(results) {
@@ -101,7 +101,7 @@ MainView = Backbone.View.extend({
 			    var count2 =0;
 			  	for (var i = 0; i < results.length; i++) { 
 			       var object = results[i];
-			       if (object.get('eventStartDate') == today.getDate()) {
+			       if (object.get('eventStartDate') == 3) {
 			       		count = count + 1;
 			       		$('.daily_container_today').append('<h3>' + object.get('eventName')+ 
 			       									':</h3><h5>Need to leave by ' + object.get('eventLeaveTime') +  ' ' + object.get('timePeriod') + 
@@ -111,7 +111,7 @@ MainView = Backbone.View.extend({
 			       
 			     
 			     
-			     if (object.get('eventStartDate') == today.getDate()+1) {
+			     if (object.get('eventStartDate') == 4) {
 			       		count2 = count2 + 1;
 			       		$('.daily_container_tomorrow').append('<h3>' + object.get('eventName')+ 
 			       									':</h3><h5>Need to leave by ' + object.get('eventLeaveTime') +  ' ' + object.get('timePeriod') + 
