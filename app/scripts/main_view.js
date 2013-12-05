@@ -89,7 +89,7 @@ MainView = Backbone.View.extend({
 		        console.log('a day has been clicked!');
 		    },
 
-		    timeFormat: 'HH(:mm)' 
+		    timeFormat: 'hh(:mm) tt' 
 
 		});
 	},
