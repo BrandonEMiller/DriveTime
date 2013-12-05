@@ -89,7 +89,7 @@ MainView = Backbone.View.extend({
 		        console.log('a day has been clicked!');
 		    },
 
-		    timeFormat: 'H(:mm)' // uppercase H for 24-hour clock
+		    timeFormat: 'HH(:mm)' 
 
 		});
 	},
