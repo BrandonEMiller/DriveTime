@@ -1,6 +1,8 @@
 DriveTime
 =========
 
+**There is a cross browser issue that is under investigation. DriveTime only works in Chrome currently**
+
 A calendar application that factors in the time it will take to get to events during the scheduling process
 
 See it here: http://brandonemiller.github.io/DriveTime/
